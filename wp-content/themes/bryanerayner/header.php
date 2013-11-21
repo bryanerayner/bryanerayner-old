@@ -20,6 +20,8 @@
 <body <?php body_class(); ?>>
 	<?php do_action( 'before' ); ?>
 	
+	<?php if (false): ?>
+
 <header id="masthead" class="site-header" role="banner">
 	<div class="container">
 		<div class="row">
@@ -40,8 +42,9 @@
 						
 			</div>
 		</div>
-	</div><!-- .container -->
+	</div><!-- .container -->
 </header><!-- #masthead -->
+<?php endif; ?>
 		
 <nav class="site-navigation">		
 	<div class="container">

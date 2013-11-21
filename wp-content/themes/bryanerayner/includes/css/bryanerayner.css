@@ -1,0 +1,11 @@
+.site-navigation::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-left-color: #ead810;
+  border-top-color: #ead810;
+  float: left;
+  clear: left;
+  display: block;
+}
