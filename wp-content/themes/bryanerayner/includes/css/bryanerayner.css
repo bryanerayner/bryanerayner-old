@@ -1,11 +1,112 @@
-.site-navigation::after {
-  content: "";
-  width: 0;
-  height: 0;
-  border: 50px solid transparent;
-  border-left-color: #ead810;
-  border-top-color: #ead810;
-  float: left;
-  clear: left;
-  display: block;
+/* Navigation 
+.site-navigation
+{
+
+	.container
+	{
+		&::after
+		{
+			content: "";
+			width: 0;
+			height: 0;
+			border: 50px solid transparent;
+			border-left-color: @yellow;
+			border-top-color: @yellow;
+			display: block;
+			margin-bottom: -100px;
+		}
+	}
+
+	.navbar
+	{
+		margin-bottom: 0;
+		background-color: @navbar-bg-color;
+		color: @navbar-color;
+	}
+
+	.navbar-brand
+	{
+		color:@navbar-color;
+	}
+
+	.navbar-nav
+	{
+		>li
+		{
+			>a
+			{
+				color:@navbar-color;
+			}
+
+			>.dropdown-menu
+			{
+				background-color: @navbar-bg-color;
+				color:@navbar-color;
+			}
+		}
+
+		>.dropdown
+		{
+			>a 
+			{
+				.caret
+				{
+					border-top-color: @navbar-color;
+					border-bottom-color: @navbar-color;
+				}
+
+			}
+		}
+	}
+	.dropdown-menu
+	{
+		>li
+		{
+			>a
+			{
+				color: @navbar-color;
+
+			}
+		}
+		li
+		{
+			a
+			{
+				color: @navbar-color;
+
+			}
+		}
+	}
+
+	
+
+}
+
+
+
+
+
+/* Typography */
+body {
+  font-size: 19px;
+  font-family: "museo-sans-rounded", "sans-serif";
+  font-weight: 500;
+  font-style: normal;
+  background-color: #b5f7ff;
+  color: #111111;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-family: "europa", sans-serif;
+}
+body p,
+body a,
+body li,
+body q,
+body blockquote {
+  font-family: "museo-sans-rounded", "sans-serif";
 }
