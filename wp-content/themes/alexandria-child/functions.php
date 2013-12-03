@@ -35,7 +35,7 @@ function portfolio_register() {
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
-		'supports' => array('title','editor','thumbnail')
+		'supports' => array('title','excerpt','editor','thumbnail')
 	  ); 
  
 	register_post_type( 'portfolio' , $args );
@@ -120,3 +120,5 @@ function portfolio_custom_columns($column){
   }
 }
 add_theme_support('post-thumbnails');
+
+
