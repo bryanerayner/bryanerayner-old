@@ -25,7 +25,7 @@ define('DB_NAME', 'bryanera_wpdb01');
  define('DB_USER', 'root');
 
 /// MySQL database password 
- define('DB_PASSWORD', 'root');
+ define('DB_PASSWORD', '');
 
 
 //For the server
