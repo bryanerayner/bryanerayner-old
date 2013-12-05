@@ -12,3 +12,11 @@
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
+
+
+.menu-item-has-children
+{
+	box-shadow: 4px 0 0 #f47e00 inset;
+	-moz-box-shadow: 4px 0 0 #f47e00 inset;
+	-webkit-box-shadow: 4px 0 0 #f47e00 inset;
+}
