@@ -1,4 +1,11 @@
 <?php
+/**
+ * @package   Options_Framework
+ * @author    Devin Price <devin@wptheming.com>
+ * @license   GPL-2.0+
+ * @link      http://wptheming.com
+ * @copyright 2013 WP Theming
+ */
 
 /* Text */
 
@@ -10,7 +17,7 @@ add_filter( 'of_sanitize_password', 'sanitize_text_field' );
 
 /* Textarea */
 
-function of_sanitize_textarea($input) {
+function of_sanitize_textarea(  $input) {
 	global $allowedposttags;
 	$output = wp_kses( $input, $allowedposttags);
 	return $output;
@@ -92,22 +99,20 @@ add_filter( 'of_sanitize_editor', 'of_sanitize_editor' );
 
 /* Allowed Tags */
 
-function of_sanitize_allowedtags($input) {
+function of_sanitize_allowedtags( $input ) {
 	global $allowedtags;
-	$output = wpautop(wp_kses( $input, $allowedtags));
+	$output = wpautop( wp_kses( $input, $allowedtags ) );
 	return $output;
 }
 
 /* Allowed Post Tags */
 
-function of_sanitize_allowedposttags($input) {
+function of_sanitize_allowedposttags( $input ) {
 	global $allowedposttags;
 	$output = wpautop(wp_kses( $input, $allowedposttags));
 	return $output;
 }
-
 add_filter( 'of_sanitize_info', 'of_sanitize_allowedposttags' );
-
 
 /* Check that the key value sent is valid */
 
@@ -233,10 +238,10 @@ add_filter( 'of_font_face', 'of_sanitize_font_face' );
  */
 function of_recognized_background_repeat() {
 	$default = array(
-		'no-repeat' => __('No Repeat', 'optionsframework'),
-		'repeat-x'  => __('Repeat Horizontally', 'optionsframework'),
-		'repeat-y'  => __('Repeat Vertically', 'optionsframework'),
-		'repeat'    => __('Repeat All', 'optionsframework'),
+		'no-repeat' => __( 'No Repeat', 'optionsframework' ),
+		'repeat-x'  => __( 'Repeat Horizontally', 'optionsframework' ),
+		'repeat-y'  => __( 'Repeat Vertically', 'optionsframework' ),
+		'repeat'    => __( 'Repeat All', 'optionsframework' ),
 		);
 	return apply_filters( 'of_recognized_background_repeat', $default );
 }
@@ -249,15 +254,15 @@ function of_recognized_background_repeat() {
  */
 function of_recognized_background_position() {
 	$default = array(
-		'top left'      => __('Top Left', 'optionsframework'),
-		'top center'    => __('Top Center', 'optionsframework'),
-		'top right'     => __('Top Right', 'optionsframework'),
-		'center left'   => __('Middle Left', 'optionsframework'),
-		'center center' => __('Middle Center', 'optionsframework'),
-		'center right'  => __('Middle Right', 'optionsframework'),
-		'bottom left'   => __('Bottom Left', 'optionsframework'),
-		'bottom center' => __('Bottom Center', 'optionsframework'),
-		'bottom right'  => __('Bottom Right', 'optionsframework')
+		'top left'      => __( 'Top Left', 'optionsframework' ),
+		'top center'    => __( 'Top Center', 'optionsframework' ),
+		'top right'     => __( 'Top Right', 'optionsframework' ),
+		'center left'   => __( 'Middle Left', 'optionsframework' ),
+		'center center' => __( 'Middle Center', 'optionsframework' ),
+		'center right'  => __( 'Middle Right', 'optionsframework' ),
+		'bottom left'   => __( 'Bottom Left', 'optionsframework' ),
+		'bottom center' => __( 'Bottom Center', 'optionsframework' ),
+		'bottom right'  => __( 'Bottom Right', 'optionsframework')
 		);
 	return apply_filters( 'of_recognized_background_position', $default );
 }
@@ -270,8 +275,8 @@ function of_recognized_background_position() {
  */
 function of_recognized_background_attachment() {
 	$default = array(
-		'scroll' => __('Scroll Normally', 'optionsframework'),
-		'fixed'  => __('Fixed in Place', 'optionsframework')
+		'scroll' => __( 'Scroll Normally', 'optionsframework' ),
+		'fixed'  => __( 'Fixed in Place', 'optionsframework')
 		);
 	return apply_filters( 'of_recognized_background_attachment', $default );
 }
