@@ -1,7 +1,7 @@
 <article <?php hybrid_post_attributes(); ?>>
 
 	<?php if ( is_singular( get_post_type() ) ) { ?>
-
+		
 		<header class="entry-header">
 			<?php bearded_post_thumbnail(); ?>
 			<?php echo apply_atomic_shortcode( 'entry_title', the_title( '<h1 class="entry-title">', '</h1>', false ) ); ?>

@@ -1,6 +1,7 @@
 <article <?php hybrid_post_attributes(); ?>>
 
 	<?php if ( is_singular( get_post_type() ) ) { ?>
+		
 
 		<header class="entry-header">
 			<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => false, 'link_to_post' => false, 'before' => '<div class="featured-image">', 'size' => 'post-thumbnail', 'after' => '</div>' ) ); ?>

@@ -13,7 +13,20 @@
 		<?php if ( have_posts() ) : ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
+				<?php
 
+				/*
+				echo var_dump(get_post_type());
+
+				echo var_dump(post_type_supports( get_post_type(), 'post-formats' ) );
+
+				echo var_dump(post_type_supports( get_post_type(), 'post-formats' ) ? get_post_format() : get_post_type() );
+
+				 
+
+				// */	
+
+				?>
 				<?php get_template_part( 'content', ( post_type_supports( get_post_type(), 'post-formats' ) ? get_post_format() : get_post_type() ) ); ?>
 
 				<?php if ( is_singular() ) comments_template(); // Loads the comments.php template. ?>
