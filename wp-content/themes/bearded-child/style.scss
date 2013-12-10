@@ -216,7 +216,36 @@ body.page_services
 			background-color:$background-color-uxDesign;
 		}
 	}
-
+	.service.service_projects 
+	{
+		.type-portfolio_item
+		{
+			.column 
+			{
+				//float:right !important;
+				&:first-child
+				{
+					margin-left:3em;				
+				}
+			}
+		}
+		.widgettitle
+		{
+				font-size:1.8em;
+				margin-left:5%;
+		}
+		.widget-entry-title
+		{
+			h3
+			{
+				font-size:1.6em;
+				a
+				{
+					color:#fff;
+				}
+			}
+		}
+	}
 
 	article
 	{
@@ -229,4 +258,6 @@ body.page_services
 			display:none;
 		}
 	}
+
+
 }
