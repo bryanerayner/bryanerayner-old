@@ -21,7 +21,7 @@ Version:        1.0.0
  * Bearded WordPress Theme, Copyright 2012-2013 Bonfirelab
  * Bearded is distributed under the terms of the GNU GPL
  */
-/* normalize.css v2.1.2 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
 /** Correct `block` display not defined in IE 8/9. */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
@@ -3217,7 +3217,7 @@ blockquote:before {
     content: "";
     background-color: #27313d;
     width: 120%;
-    height: 18.75em;
+    height: 15.5em;
     position: absolute;
     top: 0;
     margin-top: -0.75em;
@@ -3231,14 +3231,17 @@ blockquote:before {
   .portfolio_item .entry-side div.entry-published:hover > *, .portfolio_item .entry-side div.entry-edit:hover > *, .portfolio_item .entry-side div.entry-client:hover > * {
     color: #fff; }
 
+body.logged-in.admin-bar .entry-side::before {
+  height: 18.75em; }
+
 .singular-portfolio_item .bearded-tooltip {
   background-color: #f47e00; }
   .singular-portfolio_item .bearded-tooltip::before {
     border-right-color: #f47e00; }
 
-[class$="icon"], div.as-slider-control {
+[class$="icon"], div.as-slider-control, div.entry-client, div.entry-published, div.entry-edit {
   font-family: "FontAwesome"; }
-  [class$="icon"] i, div.as-slider-control i {
+  [class$="icon"] i, div.as-slider-control i, div.entry-client i, div.entry-published i, div.entry-edit i {
     font-style: normal; }
 
 body.page_services .row {
@@ -3255,9 +3258,25 @@ body.page_services .service {
   padding-top: 2em;
   padding-bottom: 2em;
   background-color: #f47e00;
-  color: #fff; }
+  color: #fff;
+  position: relative;
+  overflow: hidden; }
+  body.page_services .service .services_icon {
+    color: #fff;
+    position: absolute;
+    top: -80px;
+    right: -30px;
+    font-size: 250px; }
   body.page_services .service h2 {
     color: #fff; }
+  body.page_services .service.services_appDevelopment {
+    background-color: #138ada; }
+  body.page_services .service.services_webDesign {
+    background-color: #2b3e55; }
+    body.page_services .service.services_webDesign .services_icon {
+      color: #fff; }
+  body.page_services .service.services_uxDesign {
+    background-color: #d35858; }
 body.page_services article.hentry {
   min-height: 0; }
 body.page_services article::after {

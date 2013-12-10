@@ -14,10 +14,10 @@ Version:        1.0.0
 
 $background-color-main:#27313d;
 $background-color-primary:#f47e00;
-$background-color-appDevelopment:#27313d;
-$background-color-webDesign:#27313d;
-$background-color-uxDesign:#27313d;
-$background-color-background:#f3f3f3;
+$background-color-appDevelopment:#138ADA;
+$background-color-webDesign:#2B3E55;
+$background-color-uxDesign:#D35858;
+$background-color-background:#f3f3f3; 
 
 .menu-item-has-children
 {
@@ -88,7 +88,7 @@ $background-color-background:#f3f3f3;
 			content:"";
 			background-color: $background-color-main;
 			width: 120%;
-			height: 18.75em;
+			height: 15.5em;
 			position: absolute;
 			top:0;
 			margin-top: -0.75em;
@@ -116,6 +116,17 @@ $background-color-background:#f3f3f3;
 	}
 }
 
+body.logged-in.admin-bar
+{
+	.entry-side
+	{
+		&::before
+		{
+			height: 18.75em;		
+		}
+	}
+}
+
 
 .singular-portfolio_item
 {
@@ -131,7 +142,7 @@ $background-color-background:#f3f3f3;
 }
 
 
-[class$="icon"], div.as-slider-control
+[class$="icon"], div.as-slider-control, div.entry-client, div.entry-published, div.entry-edit
 {
 	font-family:"FontAwesome";
 	i
@@ -168,11 +179,44 @@ body.page_services
 		padding-bottom:2em;
 		background-color:$background-color-primary;
 		color:#fff;
+		position:relative;
+		overflow:hidden;
+
+
+		.services_icon
+		{
+		color:#fff;
+		position:absolute;
+		top:-80px;
+		right:-30px;
+		font-size:250px;
+		}
+
 		h2
 		{
 			color:#fff;
 		}
+
+		&.services_appDevelopment
+		{
+			background-color:$background-color-appDevelopment;
+		}
+
+		&.services_webDesign
+		{
+			background-color:$background-color-webDesign;
+			.services_icon
+			{
+			color:#fff;
+			}
+		}
+
+		&.services_uxDesign
+		{
+			background-color:$background-color-uxDesign;
+		}
 	}
+
 
 	article
 	{

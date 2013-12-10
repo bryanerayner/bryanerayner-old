@@ -21,11 +21,19 @@ define('DB_NAME', 'bryanera_wpdb01');
 
 
 //For the local host
+// // MySQL database username 
+//  define('DB_USER', 'root');
+
+// // MySQL database password 
+//  define('DB_PASSWORD', 'root');
+
+
+ //For the local host
 // MySQL database username 
  define('DB_USER', 'root');
 
 // MySQL database password 
- define('DB_PASSWORD', 'root');
+ define('DB_PASSWORD', '');
 
 
 //For the server
