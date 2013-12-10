@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 10, 2013 at 01:47 PM
--- Server version: 5.5.33
--- PHP Version: 5.2.17
+-- Generation Time: Dec 10, 2013 at 10:23 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `bryanera_wpdb01`
 --
+CREATE DATABASE IF NOT EXISTS `bryanera_wpdb01` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `bryanera_wpdb01`;
 
 -- --------------------------------------------------------
 
@@ -27,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 DROP TABLE IF EXISTS `wp_cftemail_forms`;
-CREATE TABLE `wp_cftemail_forms` (
+CREATE TABLE IF NOT EXISTS `wp_cftemail_forms` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
   `form_name` varchar(250) NOT NULL DEFAULT '',
   `form_structure` text,
@@ -92,7 +94,7 @@ INSERT INTO `wp_cftemail_forms` (`id`, `form_name`, `form_structure`, `fp_from_e
 --
 
 DROP TABLE IF EXISTS `wp_cftemail_messages`;
-CREATE TABLE `wp_cftemail_messages` (
+CREATE TABLE IF NOT EXISTS `wp_cftemail_messages` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
   `formid` int(11) NOT NULL,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -117,7 +119,7 @@ INSERT INTO `wp_cftemail_messages` (`id`, `formid`, `time`, `ipaddr`, `notifyto`
 --
 
 DROP TABLE IF EXISTS `wp_commentmeta`;
-CREATE TABLE `wp_commentmeta` (
+CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) DEFAULT NULL,
@@ -134,7 +136,7 @@ CREATE TABLE `wp_commentmeta` (
 --
 
 DROP TABLE IF EXISTS `wp_comments`;
-CREATE TABLE `wp_comments` (
+CREATE TABLE IF NOT EXISTS `wp_comments` (
   `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
   `comment_author` tinytext NOT NULL,
@@ -171,7 +173,7 @@ INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `c
 --
 
 DROP TABLE IF EXISTS `wp_cpvg_list_views`;
-CREATE TABLE `wp_cpvg_list_views` (
+CREATE TABLE IF NOT EXISTS `wp_cpvg_list_views` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   `options` text NOT NULL,
@@ -185,7 +187,7 @@ CREATE TABLE `wp_cpvg_list_views` (
 --
 
 DROP TABLE IF EXISTS `wp_cpvg_post_views`;
-CREATE TABLE `wp_cpvg_post_views` (
+CREATE TABLE IF NOT EXISTS `wp_cpvg_post_views` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   `options` text NOT NULL,
@@ -199,7 +201,7 @@ CREATE TABLE `wp_cpvg_post_views` (
 --
 
 DROP TABLE IF EXISTS `wp_links`;
-CREATE TABLE `wp_links` (
+CREATE TABLE IF NOT EXISTS `wp_links` (
   `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `link_url` varchar(255) NOT NULL DEFAULT '',
   `link_name` varchar(255) NOT NULL DEFAULT '',
@@ -224,14 +226,14 @@ CREATE TABLE `wp_links` (
 --
 
 DROP TABLE IF EXISTS `wp_options`;
-CREATE TABLE `wp_options` (
+CREATE TABLE IF NOT EXISTS `wp_options` (
   `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `option_name` varchar(64) NOT NULL DEFAULT '',
   `option_value` longtext NOT NULL,
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=596 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=604 ;
 
 --
 -- Dumping data for table `wp_options`
@@ -281,7 +283,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (41, 'gmt_offset', '0', 'yes'),
 (42, 'default_email_category', '1', 'yes'),
 (43, 'recently_edited', 'a:4:{i:0;s:95:"/Applications/MAMP/htdocs/bryanerayner/wp-content/plugins/tinymce-advanced/tinymce-advanced.php";i:1;s:91:"/Applications/MAMP/htdocs/bryanerayner/wp-content/plugins/page-in-widget/page-in-widget.php";i:2;s:83:"/Applications/MAMP/htdocs/bryanerayner/wp-content/plugins/page-in-widget/readme.txt";i:3;b:0;}', 'yes'),
-(495, 'widget_logic', 'a:9:{s:32:"siteorigin-panels-post-content-2";s:73:"(is_singular( get_post_type() ) && \\"portfolio_item\\" == get_post_type())";s:16:"page_in_widget-2";s:0:"";s:17:"recent-comments-2";s:0:"";s:18:"bearded-services-2";s:0:"";s:22:"black-studio-tinymce-2";s:0:"";s:22:"black-studio-tinymce-3";s:0:"";s:22:"black-studio-tinymce-4";s:0:"";s:6:"text-2";s:0:"";s:15:"bearded-posts-2";s:0:"";}', 'yes'),
+(495, 'widget_logic', 'a:12:{s:32:"siteorigin-panels-post-content-2";s:73:"(is_singular( get_post_type() ) && \\"portfolio_item\\" == get_post_type())";s:16:"page_in_widget-2";s:0:"";s:17:"recent-comments-2";s:0:"";s:18:"bearded-services-2";s:0:"";s:22:"black-studio-tinymce-2";s:0:"";s:22:"black-studio-tinymce-3";s:0:"";s:22:"black-studio-tinymce-4";s:0:"";s:6:"text-2";s:0:"";s:15:"bearded-posts-2";s:0:"";s:25:"bearded-portfolio_posts-2";s:0:"";s:25:"bearded-portfolio_posts-4";s:0:"";s:25:"bearded-portfolio_posts-5";s:0:"";}', 'yes'),
 (44, 'template', 'bearded', 'yes'),
 (45, 'stylesheet', 'bearded-child', 'yes'),
 (46, 'comment_whitelist', '1', 'yes'),
@@ -336,13 +338,13 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (95, 'widget_recent-comments', 'a:2:{i:2;a:4:{s:5:"title";s:15:"Recent Comments";s:6:"number";i:5;s:7:"classes";s:0:"";s:3:"ids";N;}s:12:"_multiwidget";i:1;}', 'yes'),
 (96, 'widget_archives', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
 (97, 'widget_meta', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
-(98, 'sidebars_widgets', 'a:8:{s:19:"wp_inactive_widgets";a:0:{}s:8:"services";a:4:{i:0;s:22:"black-studio-tinymce-2";i:1;s:22:"black-studio-tinymce-3";i:2;s:22:"black-studio-tinymce-4";i:3;s:6:"text-2";}s:7:"primary";a:3:{i:0;s:32:"siteorigin-panels-post-content-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";}s:8:"homepage";a:3:{i:0;s:16:"page_in_widget-2";i:1;s:18:"bearded-services-2";i:2;s:15:"bearded-posts-2";}s:8:"footer-1";a:0:{}s:8:"footer-2";a:0:{}s:8:"footer-3";a:0:{}s:13:"array_version";i:3;}', 'yes'),
+(98, 'sidebars_widgets', 'a:8:{s:19:"wp_inactive_widgets";a:0:{}s:8:"services";a:7:{i:0;s:22:"black-studio-tinymce-2";i:1;s:25:"bearded-portfolio_posts-2";i:2;s:22:"black-studio-tinymce-3";i:3;s:25:"bearded-portfolio_posts-4";i:4;s:22:"black-studio-tinymce-4";i:5;s:25:"bearded-portfolio_posts-5";i:6;s:6:"text-2";}s:7:"primary";a:3:{i:0;s:32:"siteorigin-panels-post-content-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";}s:8:"homepage";a:3:{i:0;s:16:"page_in_widget-2";i:1;s:18:"bearded-services-2";i:2;s:15:"bearded-posts-2";}s:8:"footer-1";a:0:{}s:8:"footer-2";a:0:{}s:8:"footer-3";a:0:{}s:13:"array_version";i:3;}', 'yes'),
 (99, 'cron', 'a:5:{i:1386734914;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1386734924;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1386744596;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1386744715;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
 (592, 'wpcf7', 'a:1:{s:7:"version";s:5:"3.5.4";}', 'yes'),
-(593, '_site_transient_update_plugins', 'O:8:"stdClass":4:{s:12:"last_checked";i:1386697847;s:7:"checked";a:12:{s:33:"animate-slider/animate-slider.php";s:5:"0.1.3";s:59:"black-studio-tinymce-widget/black-studio-tinymce-widget.php";s:5:"1.2.0";s:36:"contact-form-7/wp-contact-form-7.php";s:5:"3.5.4";s:33:"custom-classes/custom-classes.php";s:3:"0.1";s:38:"custom-content-portfolio/portfolio.php";s:3:"0.1";s:41:"easy-image-gallery/easy-image-gallery.php";s:5:"1.0.4";s:39:"siteorigin-panels/siteorigin-panels.php";s:5:"1.3.9";s:33:"page-in-widget/page-in-widget.php";s:3:"1.2";s:35:"reveal-template/reveal-template.php";s:3:"2.3";s:37:"tinymce-advanced/tinymce-advanced.php";s:5:"3.5.9";s:41:"widget-css-classes/widget-css-classes.php";s:5:"1.2.3";s:29:"widget-logic/widget_logic.php";s:4:"0.57";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
+(593, '_site_transient_update_plugins', 'O:8:"stdClass":3:{s:12:"last_checked";i:1386712643;s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
 (217, 'optionsframework', 'a:2:{s:2:"id";s:10:"alexandria";s:12:"knownoptions";a:1:{i:0;s:10:"alexandria";}}', 'yes'),
-(594, '_site_transient_timeout_theme_roots', '1386702736', 'yes'),
-(595, '_site_transient_theme_roots', 'a:8:{s:5:"Quora";s:7:"/themes";s:16:"alexandria-child";s:7:"/themes";s:10:"alexandria";s:7:"/themes";s:13:"bearded-child";s:7:"/themes";s:7:"bearded";s:7:"/themes";s:12:"bryanerayner";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes'),
+(601, '_site_transient_timeout_theme_roots', '1386713118', 'yes'),
+(602, '_site_transient_theme_roots', 'a:8:{s:5:"Quora";s:7:"/themes";s:16:"alexandria-child";s:7:"/themes";s:10:"alexandria";s:7:"/themes";s:13:"bearded-child";s:7:"/themes";s:7:"bearded";s:7:"/themes";s:12:"bryanerayner";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes'),
 (219, 'alexandria', 'a:75:{s:10:"skin_style";s:5:"child";s:26:"show_featured_image_single";s:4:"true";s:18:"show_rat_on_single";s:5:"false";s:17:"show_pd_on_single";s:4:"true";s:19:"show_cats_on_single";s:4:"true";s:11:"show_np_box";s:4:"true";s:10:"twitter_id";s:0:"";s:8:"redit_id";s:0:"";s:11:"facebook_id";s:0:"";s:10:"stumble_id";s:0:"";s:9:"flickr_id";s:0:"";s:11:"linkedin_id";s:0:"";s:9:"google_id";s:0:"";s:17:"logo_layout_style";s:4:"sbys";s:13:"header_slider";s:3:"one";s:27:"show_alexandria_slider_home";s:4:"true";s:29:"show_alexandria_slider_single";s:5:"false";s:27:"show_alexandria_slider_page";s:5:"false";s:30:"show_alexandria_slider_archive";s:5:"false";s:16:"slider_one_image";s:0:"";s:19:"slider_one_headline";s:0:"";s:15:"slider_one_text";s:0:"";s:14:"slider_one_cta";s:0:"";s:19:"slider_one_cta_link";s:0:"";s:15:"homepage_layout";s:4:"bone";s:16:"welcome_headline";s:0:"";s:12:"welcome_text";s:0:"";s:18:"left_section_image";s:0:"";s:21:"left_section_headline";s:0:"";s:17:"left_section_text";s:0:"";s:17:"left_section_link";s:0:"";s:20:"center_section_image";s:0:"";s:23:"center_section_headline";s:0:"";s:19:"center_section_text";s:0:"";s:19:"center_section_link";s:0:"";s:19:"right_section_image";s:0:"";s:22:"right_section_headline";s:0:"";s:18:"right_section_text";s:0:"";s:18:"right_section_link";s:0:"";s:28:"show_alexandria_quote_bizone";s:4:"true";s:18:"quote_section_text";s:0:"";s:18:"quote_section_name";s:0:"";s:17:"show_bizone_posts";s:4:"true";s:23:"biztwo_welcome_headline";s:0:"";s:19:"biztwo_welcome_text";s:0:"";s:25:"biztwo_left_section_image";s:0:"";s:28:"biztwo_left_section_headline";s:0:"";s:24:"biztwo_left_section_text";s:0:"";s:24:"biztwo_left_section_link";s:0:"";s:27:"biztwo_center_section_image";s:0:"";s:30:"biztwo_center_section_headline";s:0:"";s:26:"biztwo_center_section_text";s:0:"";s:26:"biztwo_center_section_link";s:0:"";s:26:"biztwo_right_section_image";s:0:"";s:29:"biztwo_right_section_headline";s:0:"";s:25:"biztwo_right_section_text";s:0:"";s:25:"biztwo_right_section_link";s:0:"";s:28:"show_alexandria_quote_biztwo";s:4:"true";s:25:"biztwo_quote_section_text";s:0:"";s:25:"biztwo_quote_section_name";s:0:"";s:21:"biztwo_port_one_image";s:0:"";s:20:"biztwo_port_one_name";s:0:"";s:20:"biztwo_port_one_link";s:0:"";s:21:"biztwo_port_two_image";s:0:"";s:20:"biztwo_port_two_name";s:0:"";s:20:"biztwo_port_two_link";s:0:"";s:23:"biztwo_port_three_image";s:0:"";s:22:"biztwo_port_three_name";s:0:"";s:22:"biztwo_port_three_link";s:0:"";s:22:"biztwo_port_four_image";s:0:"";s:21:"biztwo_port_four_name";s:0:"";s:21:"biztwo_port_four_link";s:0:"";s:17:"show_biztwo_posts";s:4:"true";s:19:"show_comments_spage";s:4:"true";s:13:"footer_layout";s:3:"two";}', 'yes'),
 (113, 'can_compress_scripts', '1', 'yes'),
 (107, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:1:{i:0;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:41:"https://wordpress.org/wordpress-3.7.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:41:"https://wordpress.org/wordpress-3.7.1.zip";s:10:"no_content";s:52:"https://wordpress.org/wordpress-3.7.1-no-content.zip";s:11:"new_bundled";s:53:"https://wordpress.org/wordpress-3.7.1-new-bundled.zip";s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"3.7.1";s:7:"version";s:5:"3.7.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.6";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1386697844;s:15:"version_checked";s:5:"3.7.1";s:12:"translations";a:0:{}}', 'yes'),
@@ -392,9 +394,9 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (375, 'theme_mods_bearded-child', 'a:10:{i:0;b:0;s:18:"nav_menu_locations";a:1:{s:7:"primary";i:2;}s:16:"background_color";s:6:"f3f3f3";s:16:"background_image";s:0:"";s:17:"background_repeat";s:6:"repeat";s:21:"background_position_x";s:4:"left";s:21:"background_attachment";s:5:"fixed";s:12:"bearded_logo";s:0:"";s:12:"theme_layout";s:4:"2c-l";s:21:"color_palette_primary";s:6:"f47e00";}', 'yes'),
 (377, 'bearded_theme_settings', 'a:1:{s:13:"footer_insert";s:138:"<p class="copyright">Copyright © [the-year] [site-link].</p>\n\n<p class="credit">Powered by [wp-link], [theme-link], and [child-link].</p>";}', 'yes'),
 (378, 'category_children', 'a:0:{}', 'yes'),
-(428, '_transient_timeout_plugin_slugs', '1386784248', 'no'),
+(428, '_transient_timeout_plugin_slugs', '1386799044', 'no'),
 (429, '_transient_plugin_slugs', 'a:12:{i:0;s:33:"animate-slider/animate-slider.php";i:1;s:59:"black-studio-tinymce-widget/black-studio-tinymce-widget.php";i:2;s:36:"contact-form-7/wp-contact-form-7.php";i:3;s:33:"custom-classes/custom-classes.php";i:4;s:38:"custom-content-portfolio/portfolio.php";i:5;s:41:"easy-image-gallery/easy-image-gallery.php";i:6;s:39:"siteorigin-panels/siteorigin-panels.php";i:7;s:33:"page-in-widget/page-in-widget.php";i:8;s:35:"reveal-template/reveal-template.php";i:9;s:37:"tinymce-advanced/tinymce-advanced.php";i:10;s:41:"widget-css-classes/widget-css-classes.php";i:11;s:29:"widget-logic/widget_logic.php";}', 'no'),
-(551, '_site_transient_timeout_wporg_theme_feature_list', '1386711736', 'yes'),
+(551, '_site_transient_timeout_wporg_theme_feature_list', '1386723466', 'yes'),
 (552, '_site_transient_wporg_theme_feature_list', 'a:5:{s:6:"Colors";a:15:{i:0;s:5:"black";i:1;s:4:"blue";i:2;s:5:"brown";i:3;s:4:"gray";i:4;s:5:"green";i:5;s:6:"orange";i:6;s:4:"pink";i:7;s:6:"purple";i:8;s:3:"red";i:9;s:6:"silver";i:10;s:3:"tan";i:11;s:5:"white";i:12;s:6:"yellow";i:13;s:4:"dark";i:14;s:5:"light";}s:7:"Columns";a:6:{i:0;s:10:"one-column";i:1;s:11:"two-columns";i:2;s:13:"three-columns";i:3;s:12:"four-columns";i:4;s:12:"left-sidebar";i:5;s:13:"right-sidebar";}s:8:"Features";a:19:{i:0;s:8:"blavatar";i:1;s:10:"buddypress";i:2;s:17:"custom-background";i:3;s:13:"custom-colors";i:4;s:13:"custom-header";i:5;s:11:"custom-menu";i:6;s:12:"editor-style";i:7;s:21:"featured-image-header";i:8;s:15:"featured-images";i:9;s:15:"flexible-header";i:10;s:20:"front-page-post-form";i:11;s:19:"full-width-template";i:12;s:12:"microformats";i:13;s:12:"post-formats";i:14;s:20:"rtl-language-support";i:15;s:11:"sticky-post";i:16;s:13:"theme-options";i:17;s:17:"threaded-comments";i:18;s:17:"translation-ready";}s:7:"Subject";a:3:{i:0;s:7:"holiday";i:1;s:13:"photoblogging";i:2;s:8:"seasonal";}s:5:"Width";a:2:{i:0;s:11:"fixed-width";i:1;s:14:"flexible-width";}}', 'yes'),
 (151, 'current_theme', 'Bearded Child', 'yes'),
 (152, 'theme_mods_bryanerayner', 'a:9:{i:0;b:0;s:16:"header_textcolor";s:6:"0a0a0a";s:16:"background_color";s:6:"ffffff";s:16:"background_image";s:0:"";s:17:"background_repeat";s:6:"repeat";s:21:"background_position_x";s:4:"left";s:21:"background_attachment";s:5:"fixed";s:18:"nav_menu_locations";a:1:{s:7:"primary";i:2;}s:16:"sidebars_widgets";a:2:{s:4:"time";i:1386105015;s:4:"data";a:2:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}}}}', 'yes'),
@@ -417,14 +419,14 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (165, '_transient_random_seed', '801734ce98430a70f53baee375b57717', 'yes'),
 (166, '_site_transient_timeout_browser_6f55f024304e069ddbc86244a599bc9b', '1386707434', 'yes'),
 (167, '_site_transient_browser_6f55f024304e069ddbc86244a599bc9b', 'a:9:{s:8:"platform";s:7:"Windows";s:4:"name";s:6:"Chrome";s:7:"version";s:12:"31.0.1650.57";s:10:"update_url";s:28:"http://www.google.com/chrome";s:7:"img_src";s:49:"http://s.wordpress.org/images/browsers/chrome.png";s:11:"img_src_ssl";s:48:"https://wordpress.org/images/browsers/chrome.png";s:15:"current_version";s:2:"18";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
-(198, 'recently_activated', 'a:10:{s:39:"contact-form-to-email/form-to-email.php";i:1386697819;s:35:"cleaner-gallery/cleaner-gallery.php";i:1386690818;s:41:"wp-simple-galleries/wp-simple-gallery.php";i:1386614196;s:37:"wp-editor-widget/wp-editor-widget.php";i:1386264027;s:14:"types/wpcf.php";i:1386109420;s:23:"portfolio/portfolio.php";i:1386109326;s:43:"portfolio-post-type/portfolio-post-type.php";i:1386109286;s:42:"webphysiology-portfolio/portfolio-main.php";i:1386108054;s:37:"nimble-portfolio/nimble-portfolio.php";i:1386107895;s:43:"otw-portfolio-light/otw-portfolio-light.php";i:1386105607;}', 'yes'),
+(198, 'recently_activated', 'a:9:{s:39:"contact-form-to-email/form-to-email.php";i:1386697819;s:35:"cleaner-gallery/cleaner-gallery.php";i:1386690818;s:41:"wp-simple-galleries/wp-simple-gallery.php";i:1386614196;s:37:"wp-editor-widget/wp-editor-widget.php";i:1386264027;s:14:"types/wpcf.php";i:1386109420;s:23:"portfolio/portfolio.php";i:1386109326;s:43:"portfolio-post-type/portfolio-post-type.php";i:1386109286;s:42:"webphysiology-portfolio/portfolio-main.php";i:1386108054;s:37:"nimble-portfolio/nimble-portfolio.php";i:1386107895;}', 'yes'),
 (590, '_site_transient_timeout_poptags_40cd750bba9870f18aada2478b24840a', '1386708628', 'yes');
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (591, '_site_transient_poptags_40cd750bba9870f18aada2478b24840a', 'a:40:{s:6:"widget";a:3:{s:4:"name";s:6:"widget";s:4:"slug";s:6:"widget";s:5:"count";s:4:"3898";}s:4:"post";a:3:{s:4:"name";s:4:"Post";s:4:"slug";s:4:"post";s:5:"count";s:4:"2456";}s:6:"plugin";a:3:{s:4:"name";s:6:"plugin";s:4:"slug";s:6:"plugin";s:5:"count";s:4:"2344";}s:5:"admin";a:3:{s:4:"name";s:5:"admin";s:4:"slug";s:5:"admin";s:5:"count";s:4:"1930";}s:5:"posts";a:3:{s:4:"name";s:5:"posts";s:4:"slug";s:5:"posts";s:5:"count";s:4:"1856";}s:7:"sidebar";a:3:{s:4:"name";s:7:"sidebar";s:4:"slug";s:7:"sidebar";s:5:"count";s:4:"1583";}s:7:"twitter";a:3:{s:4:"name";s:7:"twitter";s:4:"slug";s:7:"twitter";s:5:"count";s:4:"1329";}s:6:"google";a:3:{s:4:"name";s:6:"google";s:4:"slug";s:6:"google";s:5:"count";s:4:"1325";}s:8:"comments";a:3:{s:4:"name";s:8:"comments";s:4:"slug";s:8:"comments";s:5:"count";s:4:"1310";}s:6:"images";a:3:{s:4:"name";s:6:"images";s:4:"slug";s:6:"images";s:5:"count";s:4:"1260";}s:4:"page";a:3:{s:4:"name";s:4:"page";s:4:"slug";s:4:"page";s:5:"count";s:4:"1225";}s:5:"image";a:3:{s:4:"name";s:5:"image";s:4:"slug";s:5:"image";s:5:"count";s:4:"1121";}s:9:"shortcode";a:3:{s:4:"name";s:9:"shortcode";s:4:"slug";s:9:"shortcode";s:5:"count";s:4:"1000";}s:8:"facebook";a:3:{s:4:"name";s:8:"Facebook";s:4:"slug";s:8:"facebook";s:5:"count";s:3:"982";}s:5:"links";a:3:{s:4:"name";s:5:"links";s:4:"slug";s:5:"links";s:5:"count";s:3:"974";}s:3:"seo";a:3:{s:4:"name";s:3:"seo";s:4:"slug";s:3:"seo";s:5:"count";s:3:"950";}s:9:"wordpress";a:3:{s:4:"name";s:9:"wordpress";s:4:"slug";s:9:"wordpress";s:5:"count";s:3:"844";}s:7:"gallery";a:3:{s:4:"name";s:7:"gallery";s:4:"slug";s:7:"gallery";s:5:"count";s:3:"821";}s:6:"social";a:3:{s:4:"name";s:6:"social";s:4:"slug";s:6:"social";s:5:"count";s:3:"780";}s:3:"rss";a:3:{s:4:"name";s:3:"rss";s:4:"slug";s:3:"rss";s:5:"count";s:3:"722";}s:7:"widgets";a:3:{s:4:"name";s:7:"widgets";s:4:"slug";s:7:"widgets";s:5:"count";s:3:"686";}s:6:"jquery";a:3:{s:4:"name";s:6:"jquery";s:4:"slug";s:6:"jquery";s:5:"count";s:3:"681";}s:5:"pages";a:3:{s:4:"name";s:5:"pages";s:4:"slug";s:5:"pages";s:5:"count";s:3:"678";}s:5:"email";a:3:{s:4:"name";s:5:"email";s:4:"slug";s:5:"email";s:5:"count";s:3:"623";}s:4:"ajax";a:3:{s:4:"name";s:4:"AJAX";s:4:"slug";s:4:"ajax";s:5:"count";s:3:"615";}s:5:"media";a:3:{s:4:"name";s:5:"media";s:4:"slug";s:5:"media";s:5:"count";s:3:"595";}s:10:"javascript";a:3:{s:4:"name";s:10:"javascript";s:4:"slug";s:10:"javascript";s:5:"count";s:3:"572";}s:5:"video";a:3:{s:4:"name";s:5:"video";s:4:"slug";s:5:"video";s:5:"count";s:3:"570";}s:10:"buddypress";a:3:{s:4:"name";s:10:"buddypress";s:4:"slug";s:10:"buddypress";s:5:"count";s:3:"541";}s:4:"feed";a:3:{s:4:"name";s:4:"feed";s:4:"slug";s:4:"feed";s:5:"count";s:3:"539";}s:7:"content";a:3:{s:4:"name";s:7:"content";s:4:"slug";s:7:"content";s:5:"count";s:3:"530";}s:5:"photo";a:3:{s:4:"name";s:5:"photo";s:4:"slug";s:5:"photo";s:5:"count";s:3:"522";}s:4:"link";a:3:{s:4:"name";s:4:"link";s:4:"slug";s:4:"link";s:5:"count";s:3:"506";}s:6:"photos";a:3:{s:4:"name";s:6:"photos";s:4:"slug";s:6:"photos";s:5:"count";s:3:"505";}s:5:"login";a:3:{s:4:"name";s:5:"login";s:4:"slug";s:5:"login";s:5:"count";s:3:"471";}s:4:"spam";a:3:{s:4:"name";s:4:"spam";s:4:"slug";s:4:"spam";s:5:"count";s:3:"458";}s:5:"stats";a:3:{s:4:"name";s:5:"stats";s:4:"slug";s:5:"stats";s:5:"count";s:3:"453";}s:8:"category";a:3:{s:4:"name";s:8:"category";s:4:"slug";s:8:"category";s:5:"count";s:3:"452";}s:7:"youtube";a:3:{s:4:"name";s:7:"youtube";s:4:"slug";s:7:"youtube";s:5:"count";s:3:"436";}s:7:"comment";a:3:{s:4:"name";s:7:"comment";s:4:"slug";s:7:"comment";s:5:"count";s:3:"432";}}', 'yes'),
 (204, 'otw-portfolio-category_children', 'a:0:{}', 'yes'),
 (207, '_transient_plugins_delete_result_1', '1', 'yes'),
 (220, 'theme_mods_twentythirteen', 'a:1:{s:16:"sidebars_widgets";a:2:{s:4:"time";i:1386105841;s:4:"data";a:3:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:9:"sidebar-2";a:0:{}}}}', 'yes'),
-(373, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1386697845;s:7:"checked";a:8:{s:5:"Quora";s:5:"1.0.0";s:16:"alexandria-child";s:5:"1.0.0";s:10:"alexandria";s:5:"2.0.2";s:13:"bearded-child";s:5:"1.0.0";s:7:"bearded";s:5:"0.1.3";s:12:"bryanerayner";s:3:"1.0";s:14:"twentythirteen";s:3:"1.1";s:12:"twentytwelve";s:3:"1.3";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
+(373, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1386709489;s:7:"checked";a:8:{s:5:"Quora";s:5:"1.0.0";s:16:"alexandria-child";s:5:"1.0.0";s:10:"alexandria";s:5:"2.0.2";s:13:"bearded-child";s:5:"1.0.0";s:7:"bearded";s:5:"0.1.3";s:12:"bryanerayner";s:3:"1.0";s:14:"twentythirteen";s:3:"1.1";s:12:"twentytwelve";s:3:"1.3";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'yes'),
 (221, 'theme_mods_alexandria', 'a:8:{i:0;b:0;s:16:"background_color";s:6:"ebeef1";s:16:"background_image";s:94:"localhost/bryanerayner/wp-content/themes/alexandria/skins/images/alexandria/page_bg.png";s:17:"background_repeat";s:6:"repeat";s:21:"background_position_x";s:4:"left";s:21:"background_attachment";s:5:"fixed";s:18:"nav_menu_locations";a:1:{s:7:"primary";i:0;}s:16:"sidebars_widgets";a:2:{s:4:"time";i:1386106048;s:4:"data";a:5:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:11:"footer-left";a:0:{}s:13:"footer-center";N;s:12:"footer-right";N;}}}', 'yes'),
 (225, 'theme_mods_alexandria-child', 'a:3:{i:0;b:0;s:18:"nav_menu_locations";a:1:{s:7:"primary";i:2;}s:16:"sidebars_widgets";a:2:{s:4:"time";i:1386260375;s:4:"data";a:5:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:11:"footer-left";a:0:{}s:13:"footer-center";N;s:12:"footer-right";N;}}}', 'yes'),
 (334, '_transient_all_the_cool_cats', '1', 'yes'),
@@ -497,7 +499,10 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (567, 'tadv_options', 'a:6:{s:8:"advlink1";i:0;s:8:"advimage";i:1;s:11:"editorstyle";i:0;s:11:"hideclasses";i:0;s:11:"contextmenu";i:0;s:8:"no_autop";i:0;}', 'yes'),
 (503, 'WCSSC_options', 'a:6:{s:11:"show_number";s:1:"1";s:13:"show_location";s:1:"1";s:12:"show_evenodd";s:1:"1";s:7:"show_id";s:1:"1";s:4:"type";s:1:"1";s:8:"dropdown";s:58:"service_appDevelopment;service_webDesign;service_uxDesign;";}', 'yes'),
 (504, 'WCSSC_db_version', '1.2', 'yes'),
-(577, 'widget_black-studio-tinymce', 'a:4:{i:2;a:5:{s:5:"title";s:15:"App Development";s:4:"text";s:59:"<p>I make stuff for the web. It''s cool, shiny, and fun!</p>";s:4:"type";s:4:"html";s:7:"classes";s:31:"services_appDevelopment service";s:3:"ids";s:0:"";}i:3;a:5:{s:5:"title";s:10:"Web Design";s:4:"text";s:107:"<p>I design WordPress themes and templates. Have a problem with your blog? I can probably help you out.</p>";s:4:"type";s:6:"visual";s:7:"classes";s:26:"services_webDesign service";s:3:"ids";s:0:"";}i:4;a:5:{s:5:"title";s:9:"UX Design";s:4:"text";s:83:"<p>I think about the user experience because it defines what makes things work.</p>";s:4:"type";s:6:"visual";s:7:"classes";s:25:"services_uxDesign service";s:3:"ids";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes');
+(577, 'widget_black-studio-tinymce', 'a:4:{i:2;a:5:{s:5:"title";s:15:"App Development";s:4:"text";s:124:"<p>I make stuff for the web. It''s cool, shiny, and fun!</p>\r\n<div class = "services_icon"><i class = "fa fa-cogs"></i></div>";s:4:"type";s:4:"html";s:7:"classes";s:31:"services_appDevelopment service";s:3:"ids";s:0:"";}i:3;a:5:{s:5:"title";s:10:"Web Design";s:4:"text";s:172:"<p>I design WordPress themes and templates. Have a problem with your blog? I can probably help you out.</p>\r\n<div class = "services_icon"><i class = "fa fa-code"></i></div>";s:4:"type";s:4:"html";s:7:"classes";s:26:"services_webDesign service";s:3:"ids";s:0:"";}i:4;a:5:{s:5:"title";s:9:"UX Design";s:4:"text";s:170:"<p>I think about the user experience because it defines what makes things work.</p>\r\n<div class="services_icon"><img alt="" src="../post_static/UX-Design-lg.png" /></div>";s:4:"type";s:4:"html";s:7:"classes";s:25:"services_uxDesign service";s:3:"ids";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
+(599, '_site_transient_browser_2a45585bf6fbca9e24972054edb9a714', 'a:9:{s:8:"platform";s:7:"Windows";s:4:"name";s:6:"Chrome";s:7:"version";s:12:"31.0.1650.63";s:10:"update_url";s:28:"http://www.google.com/chrome";s:7:"img_src";s:49:"http://s.wordpress.org/images/browsers/chrome.png";s:11:"img_src_ssl";s:48:"https://wordpress.org/images/browsers/chrome.png";s:15:"current_version";s:2:"18";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
+(598, '_site_transient_timeout_browser_2a45585bf6fbca9e24972054edb9a714', '1387315270', 'yes'),
+(600, 'widget_bearded-portfolio_posts', 'a:4:{i:2;a:4:{s:5:"title";s:12:"Recent Apps:";s:4:"type";s:15:"app-development";s:3:"ids";s:0:"";s:7:"classes";s:48:"services_appDevelopment service service_projects";}i:4;a:4:{s:5:"title";s:15:"Recent Projects";s:4:"type";s:10:"web-design";s:3:"ids";s:0:"";s:7:"classes";s:43:"services_webDesign service service_projects";}i:5;a:4:{s:5:"title";s:12:"Recent Work:";s:4:"type";s:9:"ux-design";s:3:"ids";s:0:"";s:7:"classes";s:42:"services_uxDesign service service_projects";}s:12:"_multiwidget";i:1;}', 'yes');
 
 -- --------------------------------------------------------
 
@@ -506,7 +511,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 --
 
 DROP TABLE IF EXISTS `wp_postmeta`;
-CREATE TABLE `wp_postmeta` (
+CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) DEFAULT NULL,
@@ -514,7 +519,7 @@ CREATE TABLE `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=300 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=304 ;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -642,7 +647,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (154, 58, 'panels_data', 'a:3:{s:7:"widgets";a:2:{i:0;a:4:{s:4:"type";s:6:"visual";s:5:"title";s:8:"Services";s:4:"text";s:133:"<p>I provide services in web design &amp; development. I work with teams across the globe and locally to produce quality content.</p>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"3";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:1;a:2:{s:5:"title";s:0:"";s:4:"info";a:4:{s:5:"class";s:18:"WP_Widget_Calendar";s:2:"id";s:1:"2";s:4:"grid";s:1:"0";s:4:"cell";s:1:"1";}}}s:5:"grids";a:1:{i:0;a:2:{s:5:"cells";s:1:"2";s:5:"style";s:0:"";}}s:10:"grid_cells";a:2:{i:0;a:2:{s:6:"weight";s:18:"0.7439165701042874";s:4:"grid";s:1:"0";}i:1;a:2:{s:6:"weight";s:19:"0.25608342989571264";s:4:"grid";s:1:"0";}}}'),
 (227, 82, 'panels_data', 'a:3:{s:7:"widgets";a:2:{i:0;a:4:{s:4:"type";s:6:"visual";s:5:"title";s:0:"";s:4:"text";s:133:"<p>I provide services in web design &amp; development. I work with teams across the globe and locally to produce quality content.</p>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"1";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:1;a:2:{s:5:"title";s:0:"";s:4:"info";a:4:{s:5:"class";s:18:"WP_Widget_Calendar";s:2:"id";s:1:"2";s:4:"grid";s:1:"0";s:4:"cell";s:1:"1";}}}s:5:"grids";a:1:{i:0;a:2:{s:5:"cells";s:1:"2";s:5:"style";s:0:"";}}s:10:"grid_cells";a:2:{i:0;a:2:{s:6:"weight";s:18:"0.7439165701042874";s:4:"grid";s:1:"0";}i:1;a:2:{s:6:"weight";s:19:"0.25608342989571264";s:4:"grid";s:1:"0";}}}'),
 (156, 60, '_edit_last', '1'),
-(157, 60, '_edit_lock', '1386655544:1'),
+(157, 60, '_edit_lock', '1386712590:1'),
 (160, 62, '_wp_attached_file', '2013/12/Giant_panda_at_Vienna_Zoo_cropped.jpg'),
 (161, 62, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1320;s:6:"height";i:1140;s:4:"file";s:45:"2013/12/Giant_panda_at_Vienna_Zoo_cropped.jpg";s:5:"sizes";a:5:{s:9:"thumbnail";a:4:{s:4:"file";s:45:"Giant_panda_at_Vienna_Zoo_cropped-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:6:"medium";a:4:{s:4:"file";s:45:"Giant_panda_at_Vienna_Zoo_cropped-300x259.jpg";s:5:"width";i:300;s:6:"height";i:259;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:46:"Giant_panda_at_Vienna_Zoo_cropped-1024x884.jpg";s:5:"width";i:1024;s:6:"height";i:884;s:9:"mime-type";s:10:"image/jpeg";}s:15:"alexandriathumb";a:4:{s:4:"file";s:45:"Giant_panda_at_Vienna_Zoo_cropped-450x300.jpg";s:5:"width";i:450;s:6:"height";i:300;s:9:"mime-type";s:10:"image/jpeg";}s:16:"alexandriasingle";a:4:{s:4:"file";s:46:"Giant_panda_at_Vienna_Zoo_cropped-1200x500.jpg";s:5:"width";i:1200;s:6:"height";i:500;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
 (168, 69, '_wp_types_group_filters_association', 'any'),
@@ -731,7 +736,11 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (296, 109, '_additional_settings', ''),
 (297, 109, '_locale', 'en_US'),
 (298, 21, '_easy_image_gallery_link_images', 'on'),
-(299, 111, 'panels_data', 'a:3:{s:7:"widgets";a:4:{i:0;a:4:{s:4:"type";s:6:"visual";s:5:"title";s:0:"";s:4:"text";s:223:"<p>I provide web development services in every discipline, from user experience to database design. It’s been my pleasure to work with great clients, both as a part of a product team, and as an independent contractor.</p>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"1";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:1;a:4:{s:4:"type";s:6:"visual";s:5:"title";s:15:"App Development";s:4:"text";s:105:"<div class="service_appDevelopment">\r\n<p>I make stuff for the web. It''s cool, shiny, and fun!</p>\r\n</div>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"2";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:2;a:4:{s:4:"type";s:4:"html";s:5:"title";s:10:"Web Design";s:4:"text";s:148:"<div class="service_webDesign">\r\n<p>I design Wordpress themes and templates. Have a problem with your blog? I can probably help you out.</p>\r\n</div>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"3";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:3;a:4:{s:4:"type";s:4:"html";s:5:"title";s:9:"UX Design";s:4:"text";s:123:"<div class="service_uxDesign">\r\n<p>I think about the user experience because it defines what makes things work.</p>\r\n</div>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"4";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}}s:5:"grids";a:1:{i:0;a:2:{s:5:"cells";s:1:"1";s:5:"style";s:0:"";}}s:10:"grid_cells";a:1:{i:0;a:2:{s:6:"weight";s:1:"1";s:4:"grid";s:1:"0";}}}');
+(299, 111, 'panels_data', 'a:3:{s:7:"widgets";a:4:{i:0;a:4:{s:4:"type";s:6:"visual";s:5:"title";s:0:"";s:4:"text";s:223:"<p>I provide web development services in every discipline, from user experience to database design. It’s been my pleasure to work with great clients, both as a part of a product team, and as an independent contractor.</p>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"1";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:1;a:4:{s:4:"type";s:6:"visual";s:5:"title";s:15:"App Development";s:4:"text";s:105:"<div class="service_appDevelopment">\r\n<p>I make stuff for the web. It''s cool, shiny, and fun!</p>\r\n</div>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"2";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:2;a:4:{s:4:"type";s:4:"html";s:5:"title";s:10:"Web Design";s:4:"text";s:148:"<div class="service_webDesign">\r\n<p>I design Wordpress themes and templates. Have a problem with your blog? I can probably help you out.</p>\r\n</div>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"3";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}i:3;a:4:{s:4:"type";s:4:"html";s:5:"title";s:9:"UX Design";s:4:"text";s:123:"<div class="service_uxDesign">\r\n<p>I think about the user experience because it defines what makes things work.</p>\r\n</div>";s:4:"info";a:4:{s:5:"class";s:30:"WP_Widget_Black_Studio_TinyMCE";s:2:"id";s:1:"4";s:4:"grid";s:1:"0";s:4:"cell";s:1:"0";}}}s:5:"grids";a:1:{i:0;a:2:{s:5:"cells";s:1:"1";s:5:"style";s:0:"";}}s:10:"grid_cells";a:1:{i:0;a:2:{s:6:"weight";s:1:"1";s:4:"grid";s:1:"0";}}}'),
+(300, 112, '_edit_last', '1'),
+(301, 112, '_edit_lock', '1386711743:1'),
+(302, 112, '_easy_image_gallery_link_images', 'on'),
+(303, 112, '_thumbnail_id', '100');
 
 -- --------------------------------------------------------
 
@@ -740,7 +749,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 --
 
 DROP TABLE IF EXISTS `wp_posts`;
-CREATE TABLE `wp_posts` (
+CREATE TABLE IF NOT EXISTS `wp_posts` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -769,7 +778,7 @@ CREATE TABLE `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=112 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
 
 --
 -- Dumping data for table `wp_posts`
@@ -829,7 +838,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (58, 1, '2013-12-03 21:43:35', '2013-12-03 21:43:35', '<p>I provide services in web design &amp; development. I work with teams across the globe and locally to produce quality content.</p>\n\nDecember 2013\n\n\nM\nT\nW\nT\nF\nS\nS\n\n\n\n\n\n<a href="localhost/bryanerayner/2013/11/" title="View posts for November 2013">&laquo; Nov</a>\n&nbsp;\n&nbsp;\n\n\n\n\n\n&nbsp;1\n\n\n2345678\n\n\n9101112131415\n\n\n16171819202122\n\n\n23242526272829\n\n\n3031\n&nbsp;\n\n\n', 'Services', '', 'inherit', 'open', 'open', '', '7-revision-v1', '', '', '2013-12-03 21:43:35', '2013-12-03 21:43:35', '', 7, 'localhost/bryanerayner/7-revision-v1/', 0, 'revision', '', 0),
 (57, 1, '2013-12-03 21:42:32', '2013-12-03 21:42:32', '<h3 class="widget-title">Services</h3>     <p>I provide services in web design &amp; development. I work with teams across the globe and locally to produce quality content.</p>\n\nDecember 2013\n\n\nM\nT\nW\nT\nF\nS\nS\n\n\n\n\n\n<a href="localhost/bryanerayner/2013/11/" title="View posts for November 2013">&laquo; Nov</a>\n&nbsp;\n&nbsp;\n\n\n\n\n\n&nbsp;1\n\n\n2345678\n\n\n9101112131415\n\n\n16171819202122\n\n\n23242526272829\n\n\n3031\n&nbsp;\n\n\n', 'Services', '', 'inherit', 'open', 'open', '', '7-revision-v1', '', '', '2013-12-03 21:42:32', '2013-12-03 21:42:32', '', 7, 'localhost/bryanerayner/7-revision-v1/', 0, 'revision', '', 0),
 (82, 1, '2013-12-05 17:13:48', '2013-12-05 17:13:48', '<p>I provide web development services in every discipline, from user experience to database design. It’s been my pleasure to work with great clients, both as a part of a product team, and as an independent contractor.</p>\n', 'Services', '', 'inherit', 'open', 'open', '', '7-revision-v1', '', '', '2013-12-05 17:13:48', '2013-12-05 17:13:48', '', 7, 'localhost/bryanerayner/7-revision-v1/', 0, 'revision', '', 0),
-(60, 1, '2013-12-03 21:50:02', '2013-12-03 21:50:02', 'RideShark.com provides a carpool finding service to states and cities across North America. RideShark is an impressive solution with new features being added each quarter. Focusing on product development had left the product relying on server side technology, with some parts of the front end being untouched for five years.\r\n\r\nI worked with RideShark and Algonquin College’s Applied Research and Innovation department to improve RideShark’s service to users. Along with a dedicated team, I redesigned the core search experience across the app. Along with initial design, I provided both front end javascript and .NET code in the backend to provide a robust experience for users. After doing user testing, the new search experience for RideShark was ready to go, launching in a new contract for the client and serving tens of thousands of users.', 'RideShark.com', 'More stuff there is to do.', 'publish', 'closed', 'closed', '', 'rideshark-com', '', '', '2013-12-09 20:47:01', '2013-12-09 20:47:01', '', 0, 'http://localhost/bryanerayner/?post_type=portfolio_item&#038;p=60', 0, 'portfolio_item', '', 0),
+(60, 1, '2013-12-03 21:50:02', '2013-12-03 21:50:02', 'RideShark.com provides a carpool finding service to states and cities across North America. RideShark is an impressive solution with new features being added each quarter. Focusing on product development had left the product relying on server side technology, with some parts of the front end being untouched for five years.\r\n\r\nI worked with RideShark and Algonquin College’s Applied Research and Innovation department to improve RideShark’s service to users. Along with a dedicated team, I redesigned the core search experience across the app. Along with initial design, I provided both front end javascript and .NET code in the backend to provide a robust experience for users. After doing user testing, the new search experience for RideShark was ready to go, launching in a new contract for the client and serving tens of thousands of users.', 'RideShark.com', 'More stuff there is to do.', 'publish', 'closed', 'closed', '', 'rideshark-com', '', '', '2013-12-10 21:56:29', '2013-12-10 21:56:29', '', 0, 'http://localhost/bryanerayner/?post_type=portfolio_item&#038;p=60', 0, 'portfolio_item', '', 0),
 (62, 1, '2013-12-03 21:57:33', '2013-12-03 21:57:33', '', 'Giant_panda_at_Vienna_Zoo_(cropped)', '', 'inherit', 'open', 'open', '', 'giant_panda_at_vienna_zoo_cropped', '', '', '2013-12-03 21:57:33', '2013-12-03 21:57:33', '', 42, 'localhost/bryanerayner/wp-content/uploads/2013/12/Giant_panda_at_Vienna_Zoo_cropped.jpg', 0, 'attachment', 'image/jpeg', 0),
 (63, 1, '2013-12-03 22:00:13', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2013-12-03 22:00:13', '0000-00-00 00:00:00', '', 0, 'localhost/bryanerayner/?post_type=webphys_portfolio&p=63', 0, 'webphys_portfolio', '', 0),
 (64, 1, '2013-12-03 22:00:43', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2013-12-03 22:00:43', '0000-00-00 00:00:00', '', 0, 'localhost/bryanerayner/?post_type=webphys_portfolio&p=64', 0, 'webphys_portfolio', '', 0),
@@ -864,7 +873,8 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (107, 1, '2013-12-10 15:50:34', '2013-12-10 15:50:34', '<p>I provide web development services in every discipline, from user experience to database design. It’s been my pleasure to work with great clients, both as a part of a product team, and as an independent contractor.</p>\n<h3 class="widget-title">App Development</h3>			<p>I make stuff for the web. It''s cool, shiny, and fun!</p>\n<h3 class="widget-title">Web Design</h3>			<p>I design Wordpress themes and templates. Have a problem with your blog? I can probably help you out.</p>\n<h3 class="widget-title">UX Design</h3>			<p>I think about the user experience because it defines what makes things work.</p>\n', 'Services', '', 'inherit', 'open', 'open', '', '7-revision-v1', '', '', '2013-12-10 15:50:34', '2013-12-10 15:50:34', '', 7, 'http://localhost/bryanerayner/7-revision-v1/', 0, 'revision', '', 0),
 (108, 1, '2013-12-10 16:14:07', '2013-12-10 16:14:07', '<p>I provide web development services in every discipline, from user experience to database design. It’s been my pleasure to work with great clients, both as a part of a product team, and as an independent contractor.</p>\n<h3 class="widget-title">App Development</h3>\n<p>I make stuff for the web. It''s cool, shiny, and fun!</p>\n\n<h3 class="widget-title">Web Design</h3>\n<p>I design Wordpress themes and templates. Have a problem with your blog? I can probably help you out.</p>\n\n<h3 class="widget-title">UX Design</h3>\n<p>I think about the user experience because it defines what makes things work.</p>\n\n', 'Services', '', 'inherit', 'open', 'open', '', '7-revision-v1', '', '', '2013-12-10 16:14:07', '2013-12-10 16:14:07', '', 7, 'http://localhost/bryanerayner/7-revision-v1/', 0, 'revision', '', 0),
 (109, 1, '2013-12-10 17:50:46', '2013-12-10 17:50:46', '<p>Your Name (required)<br />\r\n    [text* your-name] </p>\r\n\r\n<p>Your Email (required)<br />\r\n    [email* your-email] </p>\r\n\r\n<p>Subject<br />\r\n    [text your-subject] </p>\r\n\r\n<p>Your Message<br />\r\n    [textarea your-message] </p>\r\n\r\n<p>[submit "Send"]</p>\n[your-subject]\n[your-name] <[your-email]>\nFrom: [your-name] <[your-email]>\r\nSubject: [your-subject]\r\n\r\nMessage Body:\r\n[your-message]\r\n\r\n--\r\nThis e-mail was sent from a contact form on Bryan Rayner (http://localhost/bryanerayner)\nbryan@bryanerayner.ca\n\n\n\n\n[your-subject]\n[your-name] <[your-email]>\nMessage Body:\r\n[your-message]\r\n\r\n--\r\nThis e-mail was sent from a contact form on Bryan Rayner (http://localhost/bryanerayner)\n[your-email]\n\n\n\nYour message was sent successfully. Thanks.\nFailed to send your message. Please try later or contact the administrator by another method.\nValidation errors occurred. Please confirm the fields and submit it again.\nFailed to send your message. Please try later or contact the administrator by another method.\nPlease accept the terms to proceed.\nPlease fill the required field.\nYour entered code is incorrect.\nDate format seems invalid.\nThis date is too early.\nThis date is too late.\nFailed to upload file.\nThis file type is not allowed.\nThis file is too large.\nFailed to upload file. Error occurred.\nNumber format seems invalid.\nThis number is too small.\nThis number is too large.\nYour answer is not correct.\nEmail address seems invalid.\nURL seems invalid.\nTelephone number seems invalid.', 'Get in touch', '', 'publish', 'open', 'open', '', 'contact-form-1', '', '', '2013-12-10 17:51:29', '2013-12-10 17:51:29', '', 0, 'http://localhost/bryanerayner/?post_type=wpcf7_contact_form&#038;p=109', 0, 'wpcf7_contact_form', '', 0),
-(110, 1, '2013-12-10 17:51:48', '2013-12-10 17:51:48', 'I''d love to hear from you - Replies can be expected within the next business day.\r\n\r\n&nbsp;\r\n\r\n[contact-form-7 id="109" title="Get in touch"]', 'Contact Me', '', 'inherit', 'open', 'open', '', '21-revision-v1', '', '', '2013-12-10 17:51:48', '2013-12-10 17:51:48', '', 21, 'http://localhost/bryanerayner/21-revision-v1/', 0, 'revision', '', 0);
+(110, 1, '2013-12-10 17:51:48', '2013-12-10 17:51:48', 'I''d love to hear from you - Replies can be expected within the next business day.\r\n\r\n&nbsp;\r\n\r\n[contact-form-7 id="109" title="Get in touch"]', 'Contact Me', '', 'inherit', 'open', 'open', '', '21-revision-v1', '', '', '2013-12-10 17:51:48', '2013-12-10 17:51:48', '', 21, 'http://localhost/bryanerayner/21-revision-v1/', 0, 'revision', '', 0),
+(112, 1, '2013-12-10 21:41:14', '2013-12-10 21:41:14', 'This website! Shameless plug.', 'bryanerayner.ca', '', 'publish', 'closed', 'closed', '', 'bryanerayner-ca', '', '', '2013-12-10 21:41:27', '2013-12-10 21:41:27', '', 0, 'http://localhost/bryanerayner/?post_type=portfolio_item&#038;p=112', 0, 'portfolio_item', '', 0);
 
 -- --------------------------------------------------------
 
@@ -873,7 +883,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 --
 
 DROP TABLE IF EXISTS `wp_terms`;
-CREATE TABLE `wp_terms` (
+CREATE TABLE IF NOT EXISTS `wp_terms` (
   `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL DEFAULT '',
   `slug` varchar(200) NOT NULL DEFAULT '',
@@ -881,7 +891,7 @@ CREATE TABLE `wp_terms` (
   PRIMARY KEY (`term_id`),
   UNIQUE KEY `slug` (`slug`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `wp_terms`
@@ -893,9 +903,11 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 (3, 'Web Apps', 'web-apps', 0),
 (4, 'Backbone.js', 'backbone-js', 0),
 (5, '.NET', 'net', 0),
-(6, 'Web Development', 'web-development', 0),
+(6, 'App Development', 'app-development', 0),
 (7, 'Default', 'default', 0),
-(8, 'post-format-gallery', 'post-format-gallery', 0);
+(8, 'post-format-gallery', 'post-format-gallery', 0),
+(11, 'UX Design', 'ux-design', 0),
+(10, 'Web Design', 'web-design', 0);
 
 -- --------------------------------------------------------
 
@@ -904,7 +916,7 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 --
 
 DROP TABLE IF EXISTS `wp_term_relationships`;
-CREATE TABLE `wp_term_relationships` (
+CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_order` int(11) NOT NULL DEFAULT '0',
@@ -933,7 +945,9 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (42, 7, 0),
 (42, 10, 0),
 (87, 1, 0),
-(87, 11, 0);
+(87, 11, 0),
+(112, 13, 0),
+(60, 14, 0);
 
 -- --------------------------------------------------------
 
@@ -942,7 +956,7 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 --
 
 DROP TABLE IF EXISTS `wp_term_taxonomy`;
-CREATE TABLE `wp_term_taxonomy` (
+CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `taxonomy` varchar(32) NOT NULL DEFAULT '',
@@ -952,7 +966,7 @@ CREATE TABLE `wp_term_taxonomy` (
   PRIMARY KEY (`term_taxonomy_id`),
   UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
   KEY `taxonomy` (`taxonomy`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `wp_term_taxonomy`
@@ -969,7 +983,9 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (8, 7, 'webphys_portfolio_type', '', 0, 0),
 (9, 6, 'portfolio_category', '', 0, 0),
 (10, 4, 'Skills', '', 0, 1),
-(11, 8, 'post_format', '', 0, 0);
+(11, 8, 'post_format', '', 0, 0),
+(14, 11, 'portfolio', '', 0, 1),
+(13, 10, 'portfolio', 'Web Design - websites that are plain websites, not tools.', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -978,7 +994,7 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 --
 
 DROP TABLE IF EXISTS `wp_usermeta`;
-CREATE TABLE `wp_usermeta` (
+CREATE TABLE IF NOT EXISTS `wp_usermeta` (
   `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) DEFAULT NULL,
@@ -1031,7 +1047,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 --
 
 DROP TABLE IF EXISTS `wp_users`;
-CREATE TABLE `wp_users` (
+CREATE TABLE IF NOT EXISTS `wp_users` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_login` varchar(60) NOT NULL DEFAULT '',
   `user_pass` varchar(64) NOT NULL DEFAULT '',
