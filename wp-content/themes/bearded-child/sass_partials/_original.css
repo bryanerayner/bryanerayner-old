@@ -1,12 +1,3 @@
-/*
-Theme Name:     Bearded Child
-Theme URI:      http://example.com/twenty-thirteen-child/
-Description:    Bearded Child Theme
-Author:         Bryan Rayner
-Author URI:     http://example.com
-Template:       bearded
-Version:        1.0.0
-*/
 /**
  * Theme Name: Bearded
  * Theme URI: http://bonfirelab.com/themes/bearded
@@ -3174,64 +3165,3 @@ blockquote:before {
 
 #isotope-filters li a:hover, #isotope-filters li a.active {
   color: #f47e00; }
-
-.menu-item-has-children {
-  box-shadow: 4px 0 0 #f47e00 inset;
-  -moz-box-shadow: 4px 0 0 #f47e00 inset;
-  -webkit-box-shadow: 4px 0 0 #f47e00 inset; }
-
-.menu-item-has-children {
-  box-shadow: 4px 0 0 #f47e00 inset;
-  -moz-box-shadow: 4px 0 0 #f47e00 inset;
-  -webkit-box-shadow: 4px 0 0 #f47e00 inset; }
-
-.portfolio_item {
-  position: relative; }
-  .portfolio_item .header_background {
-    display: block;
-    position: absolute;
-    width: 100%;
-    z-index: 0;
-    height: 10em;
-    top: 0;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-  .portfolio_item .entry-title {
-    background-color: #27313d;
-    color: #fff;
-    width: auto;
-    display: table;
-    position: relative;
-    top: -0.25em;
-    padding-right: 1.5em;
-    padding-left: 0.25em;
-    margin-left: -0.25em; }
-  .portfolio_item .entry-content {
-    margin-top: 6em; }
-  .portfolio_item #sidebar-primary {
-    margin-top: 9em; }
-  .portfolio_item .entry-side::before {
-    content: "";
-    background-color: #27313d;
-    width: 120%;
-    height: 18.75em;
-    position: absolute;
-    top: 0;
-    margin-top: -0.75em;
-    left: -10%;
-    z-index: 0;
-    -webkit-border-radius: 3px;
-    border-radius: 3px; }
-  .portfolio_item .entry-side div.entry-published > *, .portfolio_item .entry-side div.entry-edit > *, .portfolio_item .entry-side div.entry-client > * {
-    background-color: #fff;
-    color: #27313d; }
-  .portfolio_item .entry-side div.entry-published:hover > *, .portfolio_item .entry-side div.entry-edit:hover > *, .portfolio_item .entry-side div.entry-client:hover > * {
-    color: #fff; }
-
-.singular-portfolio_item .bearded-tooltip {
-  background-color: #f47e00; }
-  .singular-portfolio_item .bearded-tooltip::before {
-    border-right-color: #f47e00; }

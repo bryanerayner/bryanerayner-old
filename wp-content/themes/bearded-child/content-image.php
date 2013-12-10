@@ -4,7 +4,6 @@
 
 		<header class="entry-header">
 			<?php echo apply_atomic_shortcode( 'entry_title', the_title( '<h1 class="entry-title">', '</h1>', false ) ); ?>
-			<p>Child</p>
 			<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => false, 'link_to_post' => false, 'before' => '<div class="featured-image">', 'size' => 'post-thumbnail', 'after' => '</div>' ) ); ?>
 			<?php get_template_part('entry', 'side'); ?>
 		</header><!-- .entry-header -->

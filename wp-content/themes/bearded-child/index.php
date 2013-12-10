@@ -1,4 +1,16 @@
-<?php get_header(); // Loads the header.php template. ?>
+<?php if ( have_posts() ) : ?>
+
+	<?php while ( have_posts() ) : the_post(); ?>
+
+		<?php get_header( ( post_type_supports( get_post_type(), 'post-formats' ) ? get_post_format() : get_post_type() ) ); ?>
+		
+	<?php endwhile; ?>
+
+<?php else : ?>
+
+	<?php get_header(); // Loads the header.php template. ?>
+
+<?php endif; ?>
 	
 	<?php
 		$layout = get_theme_mod('theme_layout');
@@ -29,7 +41,7 @@
 				?>
 				<?php get_template_part( 'content', ( post_type_supports( get_post_type(), 'post-formats' ) ? get_post_format() : get_post_type() ) ); ?>
 
-				<?php if ( is_singular() && "page" != get_post_type() ) comments_template(); // Loads the comments.php template. ?>
+				<?php if ( is_singular() ) comments_template(); // Loads the comments.php template. ?>
 
 			<?php endwhile; ?>
 

@@ -1,0 +1,128 @@
+/*
+Theme Name:     Bearded Child
+Theme URI:      http://example.com/twenty-thirteen-child/
+Description:    Bearded Child Theme
+Author:         Bryan Rayner
+Author URI:     http://example.com
+Template:       bearded
+Version:        1.0.0
+*/
+
+@import "sass_partials/original";
+
+
+
+$background-color-main:#27313d;
+$background-color-primary:#f47e00;
+$background-color-background:#f3f3f3;
+
+.menu-item-has-children
+{
+	box-shadow: 4px 0 0 #f47e00 inset;
+	-moz-box-shadow: 4px 0 0 #f47e00 inset;
+	-webkit-box-shadow: 4px 0 0 #f47e00 inset;
+}
+
+
+
+.menu-item-has-children
+{
+	box-shadow: 4px 0 0 #f47e00 inset;
+	-moz-box-shadow: 4px 0 0 #f47e00 inset;
+	-webkit-box-shadow: 4px 0 0 #f47e00 inset;
+}
+
+
+
+.portfolio_item
+{
+	position: relative;
+
+	.header_background
+	{
+		display: block;
+		position: absolute;
+		width: 100%;
+		z-index: 0;
+		height: 10em;
+		top: 0;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+
+	}
+
+	.entry-title
+	{
+		background-color: $background-color-main;
+		color:#fff;
+		width: auto;
+		display:table;
+		position:relative;
+		top:-0.25em;
+		
+		padding-right: 1.5em;
+		padding-left: 0.25em;
+		margin-left:-0.25em;
+	}
+
+	.entry-content
+	{
+		margin-top: 6em;
+	}
+
+	#sidebar-primary
+	{
+		margin-top: 9em;
+	}
+
+	.entry-side
+	{
+		&::before
+		{
+			content:"";
+			background-color: $background-color-main;
+			width: 120%;
+			height: 18.75em;
+			position: absolute;
+			top:0;
+			margin-top: -0.75em;
+			left:-10%;
+			z-index: 0;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+		}
+
+		div.entry-published, div.entry-edit, div.entry-client
+		{
+			 > *
+			{
+				background-color: #fff;
+				color: $background-color-main;
+			}
+			&:hover > *
+			{
+				color: #fff;
+			}
+				
+		}
+
+
+	}
+}
+
+
+.singular-portfolio_item
+{
+
+	.bearded-tooltip
+	{
+		background-color:$background-color-primary;
+		&::before
+		{
+			border-right-color:$background-color-primary;
+		}
+	}
+}
