@@ -126,3 +126,33 @@ $background-color-background:#f3f3f3;
 		}
 	}
 }
+
+
+[class$="icon"], div.as-slider-control
+{
+	font-family:"FontAwesome";
+	i
+	{
+		font-style: normal;
+	}
+}
+
+
+body.page_services
+{
+	.row
+	{
+		max-width:100%;
+	}
+	article
+	{
+		&.hentry
+		{
+			min-height: 0;
+		}
+		&::after
+		{
+			display:none;
+		}
+	}
+}

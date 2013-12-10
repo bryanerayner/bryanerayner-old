@@ -3235,3 +3235,15 @@ blockquote:before {
   background-color: #f47e00; }
   .singular-portfolio_item .bearded-tooltip::before {
     border-right-color: #f47e00; }
+
+[class$="icon"], div.as-slider-control {
+  font-family: "FontAwesome"; }
+  [class$="icon"] i, div.as-slider-control i {
+    font-style: normal; }
+
+body.page_services .row {
+  max-width: 100%; }
+body.page_services article.hentry {
+  min-height: 0; }
+body.page_services article::after {
+  display: none; }

@@ -302,7 +302,7 @@ function bearded_enqueue_scripts() {
 
 		wp_enqueue_script( 'custom', BEARDED_JS . 'custom.js' , array('jquery'), '0.1', true );
 
-		wp_enqueue_style( 'font-awesome', BEARDED_CSS . 'font-awesome.css' , '', '3.0', 'all'  );
+		wp_enqueue_style( 'font-awesome', BEARDED_CSS . 'font-awesome.css' , '', '4.0', 'all'  );
 	}
 }
 add_action('wp_enqueue_scripts', 'bearded_enqueue_scripts');
