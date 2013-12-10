@@ -3243,6 +3243,21 @@ blockquote:before {
 
 body.page_services .row {
   max-width: 100%; }
+  body.page_services .row .column {
+    padding: 0; }
+    body.page_services .row .column article {
+      padding-left: 1.42857em;
+      padding-right: 1.42857em; }
+body.page_services .widget {
+  padding-left: 1.42857em;
+  padding-right: 1.42857em; }
+body.page_services .service {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-color: #f47e00;
+  color: #fff; }
+  body.page_services .service h2 {
+    color: #fff; }
 body.page_services article.hentry {
   min-height: 0; }
 body.page_services article::after {

@@ -14,6 +14,9 @@ Version:        1.0.0
 
 $background-color-main:#27313d;
 $background-color-primary:#f47e00;
+$background-color-appDevelopment:#27313d;
+$background-color-webDesign:#27313d;
+$background-color-uxDesign:#27313d;
 $background-color-background:#f3f3f3;
 
 .menu-item-has-children
@@ -143,7 +146,34 @@ body.page_services
 	.row
 	{
 		max-width:100%;
+		.column
+		{
+			padding:0;
+			article
+			{
+				padding-left: 1.42857em;
+				padding-right: 1.42857em;
+			}
+		}
 	}
+
+	.widget
+	{
+		padding-left: 1.42857em;
+		padding-right: 1.42857em;
+	}
+	.service
+	{
+		padding-top:2em;
+		padding-bottom:2em;
+		background-color:$background-color-primary;
+		color:#fff;
+		h2
+		{
+			color:#fff;
+		}
+	}
+
 	article
 	{
 		&.hentry
