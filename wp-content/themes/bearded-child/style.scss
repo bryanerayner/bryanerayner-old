@@ -16,6 +16,7 @@ $background-color-main:#27313d;
 $background-color-primary:#f47e00;
 $background-color-appDevelopment:#138ADA;
 $background-color-webDesign:#2B3E55;
+$background-color-gitHub:#f47e00;
 $background-color-uxDesign:#D35858;
 $background-color-background:#f3f3f3; 
 
@@ -151,6 +152,13 @@ body.logged-in.admin-bar
 	}
 }
 
+body
+{
+	p
+	{
+		max-width: 38em;
+	}
+}
 
 body.page_services
 {
@@ -159,7 +167,7 @@ body.page_services
 		max-width:100%;
 		.row
 		{
-			max-width: 56.25em;
+			max-width: 100%;
 			.column
 			{
 				padding-left: 1.42857em;
@@ -169,12 +177,29 @@ body.page_services
 		.column
 		{
 			padding:0;
-			article
-			{
-				padding-left: 1.42857em;
-				padding-right: 1.42857em;
-			}
+			
 		}
+	}
+	article
+	{
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.entry-title
+	{
+		padding-left:1.5%;
+	}
+
+	.panel-grid
+	{
+		margin:0;
+	}
+
+	.panel-grid-cell
+	{
+		padding-left:0;
+		padding-right:0;
 	}
 
 	.widget
@@ -182,7 +207,7 @@ body.page_services
 		padding-left: 1.42857em;
 		padding-right: 1.42857em;
 	}
-	.bryanerayner-service_highlight
+	.widget_bryanerayner-service_highlight, .bryanerayner-service_highlight
 	{
 		padding-top:2em;
 		padding-bottom:2em;
@@ -190,6 +215,31 @@ body.page_services
 		color:#fff;
 		position:relative;
 		overflow:hidden;
+		
+		a
+		{
+			text-decoration: underline;
+		}
+
+		a:link
+		{
+			color:#fff;
+		}
+		a:visited
+		{
+			color:#fff;
+		}
+		a:hover
+		{
+			color:#fff;
+			position:relative;
+			bottom:3px;
+			padding-bottom:3px;
+		}
+		a:active
+		{
+			color:#fff;
+		}
 
 		.services_icon
 		{
@@ -244,6 +294,12 @@ body.page_services
 		{
 			background-color:$background-color-uxDesign;
 		}
+		&.services_gitHub
+		{
+			background-color:$background-color-gitHub;
+			
+			
+		}
 		.projects_title
 		{
 			color:#fff;
@@ -254,22 +310,6 @@ body.page_services
 			h3
 			{
 				font-size: 1.2em;
-			}
-			a:link
-			{
-				color:#fff;
-			}
-			a:visited
-			{
-				color:#fff;
-			}
-			a:hover
-			{
-				color:#fff;
-			}
-			a:active
-			{
-				color:#fff;
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 
 
 	if (function_exists('register_sidebar'))
@@ -10,7 +11,7 @@
         'class'         => 'services_sidebar',
 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
 	'after_widget'  => '</div>',
-	'before_title'  => '<h2 class="widgettitle">',
+	'before_title'  => '<h2 class="widget-title">',
 	'after_title'   => '</h2>' 
 	));
 
@@ -62,8 +63,13 @@ class Bearded_Widget_Portfolio_Posts extends WP_Widget {
 		extract($args);
 		extract($instance);
 		/* Display widget ---------------------------------------------------------------*/
-		echo $before_widget; ?>
+		echo $before_widget;
 
+		  
+
+
+		 ?>
+		
 
 		<div class="bearded-posts-container row">
 			<div class="column large-12">
@@ -219,12 +225,45 @@ class Bryanerayner_Service_Highlight extends WP_Widget {
 		extract($args);
 		extract($instance);
 		/* Display widget ---------------------------------------------------------------*/
-		echo $before_widget; ?>
+		  // no 'class' attribute - add one with the value of width
+
+
+		if (!isset($CSSClass))
+		{
+			$CSSClass = "";
+		}
+
+		  if( strpos($before_widget, 'class') === false ) {
+		    $before_widget = str_replace('>', 'class="'. 'service ' . $CSSClass . '"', $before_widget);
+		  }
+		  // there is 'class' attribute - append our stuff value to it
+		  else {
+		    $before_widget = str_replace('class="', 'class="'. 'service ' . $CSSClass . ' ', $before_widget);
+		  }
+		  /* Before widget */
+		  echo $before_widget;
+
+		  ?>
 
 		<div class = "row">
 			<?php if( $icon_html ) { echo $icon_html; } ?>
 			<div class = "column large-5">
-				<?php if( $title ) { echo $before_title . $title . $after_title; } ?>
+				<?php 
+
+				if( $title ) 
+				{
+					if( strpos($before_title, '<h2 class="widget-title">') === false ) 
+					{ 
+						echo '<h2 class="widget-title">' . $title . '</h2>'; 
+					} 
+					else
+					{
+						echo $before_title . $title . $after_title; 
+					}
+				}
+
+
+				?>
 				<div class = "service_description">
 					<?php if( $description ) { echo $description; } ?>
 				</div>
@@ -300,6 +339,7 @@ class Bryanerayner_Service_Highlight extends WP_Widget {
 		}
 		$instance['project_title']   = strip_tags( $new_instance['project_title'] );
 		$instance['type'] = strip_tags($new_instance['type']);
+		$instance['CSSClass'] = strip_tags($new_instance['CSSClass']);
 
 		if ( isset($new_instance['icon_html']) ) {
 			if ( current_user_can('unfiltered_html') ) {
@@ -321,7 +361,8 @@ class Bryanerayner_Service_Highlight extends WP_Widget {
 			'description' => '<p>Available for <u>Immediate</u> Download</p>',
 			'type' => '',
 			'project_title' => 'Recent Projects',
-			'icon_html' => ''
+			'icon_html' => '',
+			'CSSClass' => ''
 		);
 		
 		$instance = wp_parse_args( (array) $instance, $defaults ); 
@@ -330,6 +371,7 @@ class Bryanerayner_Service_Highlight extends WP_Widget {
 
 		$title = esc_attr($instance['title']);
 		$icon_html = $instance['icon_html'];
+		$CSSClass = $instance['CSSClass'];
 		$description = $instance['description'];
 
 		/* Build our form ---------------------------------------------------------------*/
@@ -363,6 +405,12 @@ class Bryanerayner_Service_Highlight extends WP_Widget {
 						
 			<?php endforeach;?>
 			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('CSSClass'); ?>">
+				<i><strong><?php _e( 'CSS Class' ); ?></strong></i><br>
+				<textarea cols="53" rows="4" class="widefat" id="<?php echo $this->get_field_id('CSSClass'); ?>" name="<?php echo $this->get_field_name('CSSClass'); ?>"><?php echo $CSSClass; ?></textarea>
+			</label>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('icon_html'); ?>">
@@ -442,9 +490,171 @@ add_action( 'widgets_init', 'bryanerayner_load_service_higlight_widget' );
 
 
 
+class Bryanerayner_Widget_Posts extends WP_Widget {
 
+	
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Widget Setup
+	/*-----------------------------------------------------------------------------------*/
+	function __construct() {
+
+		$widget_ops = array( 'classname' => 'bryanerayner-posts-widget', 'description' => __('Show Latest Blog Posts. ', 'bearded') );
+		$control_ops = array();
+		$this->WP_Widget('bryanerayner-posts', __('Bryanerayner Latest Posts', 'bearded'), $widget_ops, $control_ops);
+
+	}
+
+
+
+	function widget( $args, $instance ) {
+
+		extract($args);
+		extract($instance);
+		/* Display widget ---------------------------------------------------------------*/
+		echo $before_widget; ?>
+
+
+		<div class="bearded-posts-container row">
+			<div class="column large-12">
+				<?php //if( $title ) { echo $before_title . $title . $after_title; } ?>
+				
+				<?php 
+
+				$post_type = 'post';
+
+				if( $type && $type == 'portfolio_item') {
+					$post_type = 'portfolio_item';
+				} 
+
+				$args = array(
+					'post_type' => $post_type,
+					'posts_per_page' => 4,
+					'ignore_sticky_posts' => true,
+				);
+				$loop = new WP_Query( $args );
+
+
+
+
+				if( $loop->have_posts() ) : ?>
+
+				<div class="<?php echo (!empty( $post_type ) && $post_type == 'portfolio_item' ) ? 'row collapse ' : 'row '; echo !empty( $post_type ) ? 'type-'.$post_type : 'type-post'; ?>">
+
+					<?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+
+						<div class="row widget-entry">
+							<div class="column large-3 large-uncentered small-centered">
+								<div class="widget-entry-thumbnail">
+									<?php 
+									if ()
+									{
+										if(current_theme_supports( 'get-the-image' )) 
+										{ get_the_image( array( 'size' => 'blog-thumbnail' ) ); }
+									}
+									else
+									{ 
+										?>
+										something else!
+										<a href="<?php echo get_permalink();?>" title="<?php echo the_title_attribute( array('echo' => false ) );?>">
+											<img src="<?php echo get_site_url();?>/post_static/Blog-Post-sm.png" alt="<?php echo the_title_attribute( array('echo' => false ) );?>" class="Thumbnail thumbnail blog-thumbnail">
+										</a>
+										<?php
+
+									 } ?>
+								</div>								
+							</div>
+							<div class="column large-9 large-uncentered small-centered">
+								<div class = "row">
+									<div class="widget-entry-title">
+										<?php 
+											the_title('<h3><a href="'.get_permalink().'" title="'.the_title_attribute( array('echo' => false ) ).'">', '</a></h3>'); 
+										?>
+									</div>
+									<div class="widget-entry-preview">
+										<?php the_excerpt();?>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					<?php endwhile; ?>
+
+				</div>
+
+				<?php endif; wp_reset_postdata(); ?>
+				
+			</div>
+		</div>
+		
+	<?php
+		echo $after_widget;
+	}
+
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Update Widget
+	/*-----------------------------------------------------------------------------------*/
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+
+		$instance = $new_instance;
+
+		$instance['title']   = strip_tags( $new_instance['title'] );
+		$instance['type'] = strip_tags($new_instance['type']);
+
+	
+		return $instance;
+	}
+
+
+	/*-----------------------------------------------------------------------------------*/
+	/*	Widget Settings (Displays the widget settings controls on the widget panel)
+	/*-----------------------------------------------------------------------------------*/
+	function form( $instance ) {
+
+		/* Set up some default widget settings ------------------------------------------*/
+		$defaults = array(
+			'title' => 'Latest From The Blog',
+			'type' => 'post'
+		);
+		
+		$instance = wp_parse_args( (array) $instance, $defaults ); 
+		
+		/* Build our form ---------------------------------------------------------------*/
+		?>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><code><?php _e('Title', 'bearded') ?></code></label>
+			<input class="widefat" type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'type' ); ?>"><code><?php _e('Post Type', 'bearded') ?></code></label>
+			<select class="widefat" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>">
+				<option value="post" <?php selected( $instance['type'], 'post' ); ?>><?php _e('Post','bearded'); ?></option>
+				<option value="portfolio_item" <?php selected( $instance['type'], 'portfolio_item' ); ?>><?php _e('Portfolio Item','bearded'); ?></option>
+
+			</select>
+		</p>
+
+			
+		<?php
+		}
+}
+
+
+function bryanerayner_load_posts_widget() {
+	register_widget( 'Bryanerayner_Widget_Posts' );
+}
+
+add_action( 'widgets_init', 'bryanerayner_load_posts_widget' );
 
 
 
 
 ?>
+
+
+

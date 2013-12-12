@@ -3244,71 +3244,88 @@ body.logged-in.admin-bar .entry-side::before {
   [class$="icon"] i, div.as-slider-control i, div.entry-client i, div.entry-published i, div.entry-edit i {
     font-style: normal; }
 
+body p {
+  max-width: 38em; }
+
 body.page_services .row {
   max-width: 100%; }
   body.page_services .row .row {
-    max-width: 56.25em; }
+    max-width: 100%; }
     body.page_services .row .row .column {
       padding-left: 1.42857em;
       padding-right: 1.42857em; }
   body.page_services .row .column {
     padding: 0; }
-    body.page_services .row .column article {
-      padding-left: 1.42857em;
-      padding-right: 1.42857em; }
+body.page_services article {
+  padding-left: 0;
+  padding-right: 0; }
+body.page_services .entry-title {
+  padding-left: 1.5%; }
+body.page_services .panel-grid {
+  margin: 0; }
+body.page_services .panel-grid-cell {
+  padding-left: 0;
+  padding-right: 0; }
 body.page_services .widget {
   padding-left: 1.42857em;
   padding-right: 1.42857em; }
-body.page_services .bryanerayner-service_highlight {
+body.page_services .widget_bryanerayner-service_highlight, body.page_services .bryanerayner-service_highlight {
   padding-top: 2em;
   padding-bottom: 2em;
   background-color: #f47e00;
   color: #fff;
   position: relative;
   overflow: hidden; }
-  body.page_services .bryanerayner-service_highlight .services_icon {
+  body.page_services .widget_bryanerayner-service_highlight a, body.page_services .bryanerayner-service_highlight a {
+    text-decoration: underline; }
+  body.page_services .widget_bryanerayner-service_highlight a:link, body.page_services .bryanerayner-service_highlight a:link {
+    color: #fff; }
+  body.page_services .widget_bryanerayner-service_highlight a:visited, body.page_services .bryanerayner-service_highlight a:visited {
+    color: #fff; }
+  body.page_services .widget_bryanerayner-service_highlight a:hover, body.page_services .bryanerayner-service_highlight a:hover {
+    color: #fff;
+    position: relative;
+    bottom: 3px;
+    padding-bottom: 3px; }
+  body.page_services .widget_bryanerayner-service_highlight a:active, body.page_services .bryanerayner-service_highlight a:active {
+    color: #fff; }
+  body.page_services .widget_bryanerayner-service_highlight .services_icon, body.page_services .bryanerayner-service_highlight .services_icon {
     color: #fff;
     position: absolute;
     top: -31px;
     right: 0px;
     font-size: 105px; }
-    body.page_services .bryanerayner-service_highlight .services_icon img {
+    body.page_services .widget_bryanerayner-service_highlight .services_icon img, body.page_services .bryanerayner-service_highlight .services_icon img {
       width: 140px;
       right: -16px;
       top: -10px;
       position: absolute; }
   @media only screen and (min-width: 768px) {
-    body.page_services .bryanerayner-service_highlight .services_icon {
+    body.page_services .widget_bryanerayner-service_highlight .services_icon, body.page_services .bryanerayner-service_highlight .services_icon {
       top: -80px;
       right: -30px;
       font-size: 250px; }
-      body.page_services .bryanerayner-service_highlight .services_icon img {
+      body.page_services .widget_bryanerayner-service_highlight .services_icon img, body.page_services .bryanerayner-service_highlight .services_icon img {
         width: 100%;
         top: -40px;
         position: relative; } }
-  body.page_services .bryanerayner-service_highlight h2 {
+  body.page_services .widget_bryanerayner-service_highlight h2, body.page_services .bryanerayner-service_highlight h2 {
     color: #fff; }
-  body.page_services .bryanerayner-service_highlight.services_appDevelopment {
+  body.page_services .widget_bryanerayner-service_highlight.services_appDevelopment, body.page_services .bryanerayner-service_highlight.services_appDevelopment {
     background-color: #138ada; }
-  body.page_services .bryanerayner-service_highlight.services_webDesign {
+  body.page_services .widget_bryanerayner-service_highlight.services_webDesign, body.page_services .bryanerayner-service_highlight.services_webDesign {
     background-color: #2b3e55; }
-    body.page_services .bryanerayner-service_highlight.services_webDesign .services_icon {
+    body.page_services .widget_bryanerayner-service_highlight.services_webDesign .services_icon, body.page_services .bryanerayner-service_highlight.services_webDesign .services_icon {
       color: #fff; }
-  body.page_services .bryanerayner-service_highlight.services_uxDesign {
+  body.page_services .widget_bryanerayner-service_highlight.services_uxDesign, body.page_services .bryanerayner-service_highlight.services_uxDesign {
     background-color: #d35858; }
-  body.page_services .bryanerayner-service_highlight .projects_title {
+  body.page_services .widget_bryanerayner-service_highlight.services_gitHub, body.page_services .bryanerayner-service_highlight.services_gitHub {
+    background-color: #f47e00; }
+  body.page_services .widget_bryanerayner-service_highlight .projects_title, body.page_services .bryanerayner-service_highlight .projects_title {
     color: #fff;
     padding-left: 1em; }
-  body.page_services .bryanerayner-service_highlight .project_title h3 {
+  body.page_services .widget_bryanerayner-service_highlight .project_title h3, body.page_services .bryanerayner-service_highlight .project_title h3 {
     font-size: 1.2em; }
-  body.page_services .bryanerayner-service_highlight .project_title a:link {
-    color: #fff; }
-  body.page_services .bryanerayner-service_highlight .project_title a:visited {
-    color: #fff; }
-  body.page_services .bryanerayner-service_highlight .project_title a:hover {
-    color: #fff; }
-  body.page_services .bryanerayner-service_highlight .project_title a:active {
-    color: #fff; }
 body.page_services article.hentry {
   min-height: 0; }
 body.page_services article::after {
