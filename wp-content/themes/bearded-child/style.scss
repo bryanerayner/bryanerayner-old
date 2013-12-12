@@ -154,9 +154,18 @@ body.logged-in.admin-bar
 
 body.page_services
 {
-	.row
+    .row
 	{
 		max-width:100%;
+		.row
+		{
+			max-width: 56.25em;
+			.column
+			{
+				padding-left: 1.42857em;
+				padding-right: 1.42857em;
+			}
+		}
 		.column
 		{
 			padding:0;
@@ -173,7 +182,7 @@ body.page_services
 		padding-left: 1.42857em;
 		padding-right: 1.42857em;
 	}
-	.service
+	.bryanerayner-service_highlight
 	{
 		padding-top:2em;
 		padding-bottom:2em;
@@ -182,14 +191,34 @@ body.page_services
 		position:relative;
 		overflow:hidden;
 
-
 		.services_icon
 		{
-		color:#fff;
-		position:absolute;
-		top:-80px;
-		right:-30px;
-		font-size:250px;
+			color:#fff;
+			position:absolute;
+			top: -31px;
+			right: 0px;
+			font-size: 105px;
+			img
+			{
+				width: 140px;
+				right: -16px;
+				top: -10px;
+				position: absolute;
+			}
+		}
+		@media only screen and (min-width: 768px) { 
+			.services_icon
+			{
+			top:-80px;
+			right:-30px;
+			font-size:250px;
+				img
+				{
+					width: 100%;
+					top:-40px;
+					position: relative;
+				}
+			}
 		}
 
 		h2
@@ -215,34 +244,32 @@ body.page_services
 		{
 			background-color:$background-color-uxDesign;
 		}
-	}
-	.service.service_projects 
-	{
-		.type-portfolio_item
+		.projects_title
 		{
-			.column 
-			{
-				//float:right !important;
-				&:first-child
-				{
-					margin-left:3em;				
-				}
-			}
+			color:#fff;
+			padding-left:1em;
 		}
-		.widgettitle
-		{
-				font-size:1.8em;
-				margin-left:5%;
-		}
-		.widget-entry-title
+		.project_title
 		{
 			h3
 			{
-				font-size:1.6em;
-				a
-				{
-					color:#fff;
-				}
+				font-size: 1.2em;
+			}
+			a:link
+			{
+				color:#fff;
+			}
+			a:visited
+			{
+				color:#fff;
+			}
+			a:hover
+			{
+				color:#fff;
+			}
+			a:active
+			{
+				color:#fff;
 			}
 		}
 	}
