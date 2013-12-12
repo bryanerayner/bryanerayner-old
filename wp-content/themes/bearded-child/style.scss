@@ -36,7 +36,16 @@ $background-color-background:#f3f3f3;
 	-webkit-box-shadow: 4px 0 0 #f47e00 inset;
 }
 
-
+.no-featured-image
+{
+	&.blog
+	{
+		img
+		{
+			background-color:$background-color-appDevelopment;
+		}
+	}
+}
 
 .portfolio_item
 {
@@ -99,7 +108,7 @@ $background-color-background:#f3f3f3;
 			border-radius: 3px;
 		}
 
-		div.entry-published, div.entry-edit, div.entry-client
+		div.entry-published, div.entry-edit, div.entry-client, div.entry-format
 		{
 			 > *
 			{
@@ -143,7 +152,7 @@ body.logged-in.admin-bar
 }
 
 
-[class$="icon"], div.as-slider-control, div.entry-client, div.entry-published, div.entry-edit
+[class$="icon"], div.as-slider-control, div.entry-client, div.entry-published, div.entry-edit, div.entry-format
 {
 	font-family:"FontAwesome";
 	i

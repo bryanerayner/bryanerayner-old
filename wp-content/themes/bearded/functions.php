@@ -402,47 +402,47 @@ function bearded_get_post_format_icon( $format = '' ) {
 		switch ($format) {
 
 			case 'aside':
-				$o .= apply_atomic( 'aside_format_icon', '<i class="icon-paper-clip"></i>' );
+				$o .= apply_atomic( 'aside_format_icon', '<i class="fa-paperclip"></i>' );
 			break;
 
 			case 'audio':
-				$o .= apply_atomic( 'audio_format_icon', '<i class="icon-headphones"></i>' );
+				$o .= apply_atomic( 'audio_format_icon', '<i class="fa-headphones"></i>' );
 			break;
 
 			case 'chat':
-				$o .= apply_atomic( 'chat_format_icon', '<i class="icon-comments"></i>' );
+				$o .= apply_atomic( 'chat_format_icon', '<i class="fa-comments"></i>' );
 			break;
 
 			case 'image':
-				$o .= apply_atomic( 'image_format_icon', '<i class="icon-camera"></i>' );
+				$o .= apply_atomic( 'image_format_icon', '<i class="fa-camera"></i>' );
 			break;
 
 			case 'gallery':
-				$o .= apply_atomic( 'gallery_format_icon', '<i class="icon-picture"></i>' );
+				$o .= apply_atomic( 'gallery_format_icon', '<i class="fa-picture-o"></i>' );
 			break;
 
 			case 'link':
-				$o .= apply_atomic( 'link_format_icon', '<i class="icon-link"></i>' );
+				$o .= apply_atomic( 'link_format_icon', '<i class="fa-link"></i>' );
 			break;
 
 			case 'quote':
-				$o .= apply_atomic( 'quote_format_icon', '<i class="icon-quote-left"></i>' );
+				$o .= apply_atomic( 'quote_format_icon', '<i class="fa-quote-left"></i>' );
 			break;
 
 			case 'status':
-				$o .= apply_atomic( 'status_format_icon', '<i class="icon-file"></i>' );
+				$o .= apply_atomic( 'status_format_icon', '<i class="fa-file"></i>' );
 			break;
 
 			case 'video':
-				$o .= apply_atomic( 'video_format_icon', '<i class="icon-play"></i>' );
+				$o .= apply_atomic( 'video_format_icon', '<i class="fa-play"></i>' );
 			break;
 
 			case 'portfolio':
-				$o .= apply_atomic( 'portfolio_item_icon', '<i class="icon-briefcase"></i>' );
+				$o .= apply_atomic( 'portfolio_item_icon', '<i class="fa-briefcase"></i>' );
 			break;
 			
 			default:
-				$o .= apply_atomic( 'standard_format_icon', '<i class="icon-file"></i>' );
+				$o .= apply_atomic( 'standard_format_icon', '<i class="fa-file"></i>' );
 			break;
 
 		}

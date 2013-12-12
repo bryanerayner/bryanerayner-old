@@ -547,7 +547,7 @@ class Bryanerayner_Widget_Posts extends WP_Widget {
 							<div class="column large-3 large-uncentered small-centered">
 								<div class="widget-entry-thumbnail">
 									<?php 
-									if ()
+									if (has_post_thumbnail())
 									{
 										if(current_theme_supports( 'get-the-image' )) 
 										{ get_the_image( array( 'size' => 'blog-thumbnail' ) ); }
@@ -555,9 +555,8 @@ class Bryanerayner_Widget_Posts extends WP_Widget {
 									else
 									{ 
 										?>
-										something else!
-										<a href="<?php echo get_permalink();?>" title="<?php echo the_title_attribute( array('echo' => false ) );?>">
-											<img src="<?php echo get_site_url();?>/post_static/Blog-Post-sm.png" alt="<?php echo the_title_attribute( array('echo' => false ) );?>" class="Thumbnail thumbnail blog-thumbnail">
+										<a href="<?php echo get_permalink();?>" title="<?php echo the_title_attribute( array('echo' => false ) );?>" class = "no-featured-image blog">
+											<img src="<?php echo get_stylesheet_directory_uri();?>/images/Blog-Post-sm.png" alt="<?php echo the_title_attribute( array('echo' => false ) );?>" class="Thumbnail thumbnail blog-thumbnail">
 										</a>
 										<?php
 

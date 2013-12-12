@@ -3185,6 +3185,9 @@ blockquote:before {
   -moz-box-shadow: 4px 0 0 #f47e00 inset;
   -webkit-box-shadow: 4px 0 0 #f47e00 inset; }
 
+.no-featured-image.blog img {
+  background-color: #138ada; }
+
 .portfolio_item {
   position: relative; }
   .portfolio_item .header_background {
@@ -3225,10 +3228,10 @@ blockquote:before {
     z-index: 0;
     -webkit-border-radius: 3px;
     border-radius: 3px; }
-  .portfolio_item .entry-side div.entry-published > *, .portfolio_item .entry-side div.entry-edit > *, .portfolio_item .entry-side div.entry-client > * {
+  .portfolio_item .entry-side div.entry-published > *, .portfolio_item .entry-side div.entry-edit > *, .portfolio_item .entry-side div.entry-client > *, .portfolio_item .entry-side div.entry-format > * {
     background-color: #fff;
     color: #27313d; }
-  .portfolio_item .entry-side div.entry-published:hover > *, .portfolio_item .entry-side div.entry-edit:hover > *, .portfolio_item .entry-side div.entry-client:hover > * {
+  .portfolio_item .entry-side div.entry-published:hover > *, .portfolio_item .entry-side div.entry-edit:hover > *, .portfolio_item .entry-side div.entry-client:hover > *, .portfolio_item .entry-side div.entry-format:hover > * {
     color: #fff; }
 
 body.logged-in.admin-bar .entry-side::before {
@@ -3239,9 +3242,9 @@ body.logged-in.admin-bar .entry-side::before {
   .singular-portfolio_item .bearded-tooltip::before {
     border-right-color: #f47e00; }
 
-[class$="icon"], div.as-slider-control, div.entry-client, div.entry-published, div.entry-edit {
+[class$="icon"], div.as-slider-control, div.entry-client, div.entry-published, div.entry-edit, div.entry-format {
   font-family: "FontAwesome"; }
-  [class$="icon"] i, div.as-slider-control i, div.entry-client i, div.entry-published i, div.entry-edit i {
+  [class$="icon"] i, div.as-slider-control i, div.entry-client i, div.entry-published i, div.entry-edit i, div.entry-format i {
     font-style: normal; }
 
 body p {
